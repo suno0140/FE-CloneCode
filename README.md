@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# 클론코딩
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+2조 클론코딩 프론트
 
-## Available Scripts
+## 클론코딩 페이지 선정
 
-In the project directory, you can run:
+브레인 스토밍 통해 팀원들과 페이지 선정
+https://aged-dryer-e75.notion.site/05f0fc15de6847f9b39b1ac37f5912ef
 
-### `yarn start`
+### 역할분담
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+헤더/ 풋터 (수빈)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- 카테고리 내 카테고리 level 1
+- 검색 level 2
+- 스크롤 내리면 형태 변환 level 2
 
-### `yarn test`
+메인페이지 (수빈)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- 스크롤 형태 변환 level 1
+- 아이템 불러오기 level 1
+- 캐러셀 기능 level 2
 
-### `yarn build`
+상품 리스트 페이지 (수빈)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- 상품들 불러오기 level 1
+- 페이지네이션 level 2
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+상품 상세 페이지 (선호)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 상품 내역 불러오기  level 1
+- 댓글 (후기 기능)  level 2
 
-### `yarn eject`
+장바구니 페이지 (선호)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- 장바구니 리스트 불러오기 level 1
+- 수량 변경 시 금액 변경 level 1
+- 전체 금액 합계 level 1
+- 전체 금액 합계가 일정 금액을 넘을 시 배송비 무료로 변경 level 1
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+로그인  (선호)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 토큰 localstorage에 저장 level 1
+- 소셜로그인 level 2 (카카오)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+회원가입 페이지  (선호)
 
-## Learn More
+- 인풋에서 조건 맞는지 확인 (유효성검사)  level 1
+- 빈칸 처리 level 1
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
