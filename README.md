@@ -4,7 +4,8 @@
 
 ## 클론코딩 페이지 선정
 
-http://iiinjeju.com/index.html
+브레인 스토밍 통해 팀원들과 페이지 선정
+https://aged-dryer-e75.notion.site/05f0fc15de6847f9b39b1ac37f5912ef
 
 ### 역할분담
 
