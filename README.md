@@ -2,7 +2,7 @@
 
 2조 클론코딩 프론트
 
-## 페이지선정
+## 클론코딩 페이지 선정
 
 http://iiinjeju.com/index.html
 
