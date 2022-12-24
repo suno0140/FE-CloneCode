@@ -17,7 +17,6 @@ https://aged-dryer-e75.notion.site/05f0fc15de6847f9b39b1ac37f5912ef
 ### Convention
 https://aged-dryer-e75.notion.site/Convention-7df800914678401f91870a3ca3c95297
 
-
 ### 역할분담
 
 헤더/ 풋터 (수빈)
