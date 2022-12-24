@@ -1,67 +1,55 @@
 import React from "react";
 import styled from "styled-components";
+import FlexContainer from "../common/FlexContainer";
 
 const LoginPage = () => {
   return (
-    <StContainer>
-      <StTitle>Login</StTitle>
-
-      <StDiv>
-        <Stfieldset>
-          <Stlabel>
-            <Stspan>
+    <FlexContainer>
+      <LoginContainerFirst>
+        <Loginfieldset>
+          <LoginTitle>Login</LoginTitle>
+          <LoginLabel>
+            <Loginspan>
               <img src="http://iiinjeju.com/_dj/img/s62_login_login_icon.jpg"></img>
-            </Stspan>
+            </Loginspan>
 
-            <StInput></StInput>
-          </Stlabel>
-          <Stlabel>
-            <Stspan>
+            <LoginInput></LoginInput>
+          </LoginLabel>
+          <LoginLabel>
+            <Loginspan>
               <img src="http://iiinjeju.com/_dj/img/s62_login_pw_icon.jpg"></img>
-            </Stspan>
-            <StInput></StInput>
-          </Stlabel>
-          <StLoginButton>로그인</StLoginButton>
-          <Stul>
-            <StkakaoBtn>카카오계정 로그인</StkakaoBtn>
-          </Stul>
-          <StPtag>
+            </Loginspan>
+            <LoginInput></LoginInput>
+          </LoginLabel>
+          <LoginButton>로그인</LoginButton>
+          <LoginUl>
+            <LoginkakaoBtn>카카오계정 로그인</LoginkakaoBtn>
+          </LoginUl>
+          <LoginPtag>
             아직 회원이 아니신가요? <br />
             고객을 위한 다양한 혜택이 준비되어 있습니다.
-            <StAtag>회원가입</StAtag>
-          </StPtag>
-        </Stfieldset>
-      </StDiv>
-    </StContainer>
+            <LoginAtag>회원가입</LoginAtag>
+          </LoginPtag>
+        </Loginfieldset>
+      </LoginContainerFirst>
+    </FlexContainer>
   );
 };
 
 export default LoginPage;
 
-const StContainer = styled.div`
-  min-width: 1150px;
-  padding: 0 0 0;
-  margin: 60px auto 0;
-  position: relative;
-`;
-
-const StTitle = styled.div`
+const LoginTitle = styled.div`
   font-size: 2rem;
   min-height: 30px;
   padding: 0 0 49px;
   text-align: center;
-  transition: all 0.5s;
 `;
 
-const StDiv = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 10px;
+const LoginContainerFirst = styled.div`
+  /* gap: 10px; */
 `;
 
-const Stlabel = styled.label`
+const LoginLabel = styled.label`
   display: flex;
   align-items: center;
   width: 450px;
@@ -70,7 +58,7 @@ const Stlabel = styled.label`
   color: #8f8f91;
 `;
 
-const StInput = styled.input`
+const LoginInput = styled.input`
   float: left;
   width: 300px;
   height: 45px;
@@ -82,7 +70,7 @@ const StInput = styled.input`
   color: #111;
 `;
 
-const Stspan = styled.span`
+const Loginspan = styled.span`
   font-size: 0.8rem;
   letter-spacing: 1px;
   margin-top: 10px;
@@ -96,7 +84,7 @@ const Stspan = styled.span`
   color: #c9c9c9;
 `;
 
-const StLoginButton = styled.button`
+const LoginButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,15 +97,15 @@ const StLoginButton = styled.button`
   font-size: 1.1rem;
 `;
 
-const Stfieldset = styled.fieldset`
+const Loginfieldset = styled.fieldset`
   position: relative;
-  width: 402px;
+  width: 302px;
   margin: 0 auto;
   border: none;
   min-inline-size: min-content;
 `;
 
-const Stul = styled.ul`
+const LoginUl = styled.ul`
   display: flex;
   justify-content: flex-start;
   overflow: hidden;
@@ -126,7 +114,8 @@ const Stul = styled.ul`
   margin: 0;
   border: 0;
 `;
-const StkakaoBtn = styled.button`
+
+const LoginkakaoBtn = styled.button`
   width: 200px;
   margin: 5px 0 0;
   border: 0;
@@ -145,7 +134,7 @@ const StkakaoBtn = styled.button`
   box-sizing: border-box;
 `;
 
-const StPtag = styled.p`
+const LoginPtag = styled.p`
   position: relative;
   font-size: 0.9rem;
   letter-spacing: 0;
@@ -159,7 +148,7 @@ const StPtag = styled.p`
   color: #777;
 `;
 
-const StAtag = styled.a`
+const LoginAtag = styled.a`
   font-weight: 500;
   letter-spacing: 0.05em;
   border: 2px solid #222;
