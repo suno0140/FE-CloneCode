@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import MainItemScreen from "../../mainItem/MainItemScreen";
+import ItemScreen from "../../../common/item/ItemScreen";
 
 const MainItemListScreen = () => {
   return (
@@ -9,10 +9,10 @@ const MainItemListScreen = () => {
       <p></p>
       <h5>재주상회에서 소개하는 새로운 제품들 입니다.</h5>
       <div>
-        <MainItemScreen />
-        <MainItemScreen />
-        <MainItemScreen />
-        <MainItemScreen />
+        <ItemScreen />
+        <ItemScreen />
+        <ItemScreen />
+        <ItemScreen />
       </div>
     </Container>
   );

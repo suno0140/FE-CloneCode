@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const MainItemScreen = () => {
+const ItemScreen = () => {
   return (
     <Container>
       <img
@@ -47,4 +47,4 @@ const Container = styled.div`
   }
 `;
 
-export default MainItemScreen;
+export default ItemScreen;
