@@ -4,7 +4,6 @@ import FlexContainer from "../common/FlexContainer";
 
 const LoginPage = () => {
   return (
-
     <LoginContainerFirst>
       <Loginfieldset>
         <LoginTitle>Login</LoginTitle>
@@ -23,7 +22,9 @@ const LoginPage = () => {
         </LoginLabel>
         <LoginButton>로그인</LoginButton>
         <LoginUl>
-          <LoginkakaoBtn>카카오계정 로그인</LoginkakaoBtn>
+          <LoginNaverBtn>네이버계정 로그인</LoginNaverBtn>
+          <LoginFacebookBtn>facebook계정 로그인</LoginFacebookBtn>
+          <LoginKakaoBtn>카카오계정 로그인</LoginKakaoBtn>
         </LoginUl>
         <LoginPtag>
           아직 회원이 아니신가요? <br />
@@ -48,9 +49,11 @@ const LoginContainerFirst = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 50px;
+  width: 470px;
 `;
 
-const LoginLabel = styled.label`
+const LoginLabel = styled.div`
   display: flex;
   align-items: center;
   width: 450px;
@@ -98,25 +101,19 @@ const LoginButton = styled.button`
   font-size: 1.1rem;
 `;
 
-const Loginfieldset = styled.fieldset`
-  position: relative;
-  width: 302px;
-  margin: 0 auto;
+const Loginfieldset = styled.div`
   border: none;
-  min-inline-size: min-content;
 `;
 
-const LoginUl = styled.ul`
-  display: flex;
-  justify-content: flex-start;
-  overflow: hidden;
-  text-align: right;
+const LoginUl = styled.div`
+  flex-wrap: wrap;
+  align-content: stretch;
   padding: 4px 0 5px;
   margin: 0;
   border: 0;
 `;
 
-const LoginkakaoBtn = styled.button`
+const LoginKakaoBtn = styled.button`
   width: 200px;
   margin: 5px 0 0;
   border: 0;
@@ -129,6 +126,44 @@ const LoginkakaoBtn = styled.button`
   padding: 1px 0 0 45px;
   background: #ffeb00
     url(//img.echosting.cafe24.com/skin/mobile/member/ico_btn_kakao.png)
+    no-repeat 11px 1px;
+  background-size: auto 33px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+`;
+
+const LoginFacebookBtn = styled.button`
+  width: 200px;
+  margin: 5px 0 0 10px;
+  border: 0;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  color: white;
+  text-align: center;
+  height: 34px;
+  line-height: 33px;
+  padding: 1px 0 0 45px;
+  background: #3b5998
+    url(//img.echosting.cafe24.com/skin/mobile/member/ico_btn_facebook.png)
+    no-repeat 11px 1px;
+  background-size: auto 33px;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+`;
+
+const LoginNaverBtn = styled.button`
+  width: 200px;
+  margin: 5px 0 0;
+  border: 0;
+  border-radius: 2px;
+  font-size: 0.8rem;
+  color: white;
+  text-align: center;
+  height: 34px;
+  line-height: 33px;
+  padding: 1px 0 0 45px;
+  background: #26c826
+    url(//img.echosting.cafe24.com/skin/mobile/member/ico_btn_naver.png)
     no-repeat 11px 1px;
   background-size: auto 33px;
   -moz-box-sizing: border-box;
