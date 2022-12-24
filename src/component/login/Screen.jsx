@@ -8,7 +8,7 @@ const LoginPage = () => {
 
       <StDiv>
         <Stlabel>
-          <span><img src="/_dj/img/s62_login_login_icon.jpg"></span>
+          {/* <span><img src="/_dj/img/s62_login_login_icon.jpg"></span> */}
           <StInput></StInput>
         </Stlabel>
       </StDiv>
