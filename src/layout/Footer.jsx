@@ -15,8 +15,10 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   border-top: 2px solid black;
-  padding: 0.9rem;
+  padding: 1.5rem 0 1rem 0;
   width: 100%;
+  min-width: 800px;
+  max-width: 1200px;
   h5 {
     font-weight: 800;
     margin: 0;
