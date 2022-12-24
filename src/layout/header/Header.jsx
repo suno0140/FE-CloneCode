@@ -1,10 +1,10 @@
 import React from "react";
-import ScreenHeader from "./screen/ScreenHeader";
+import HeaderScreen from "./screen/HeaderScreen";
 
 const Header = () => {
   return (
     <>
-      <ScreenHeader />
+      <HeaderScreen />
     </>
   );
 };
