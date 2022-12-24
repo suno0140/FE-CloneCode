@@ -3,7 +3,7 @@ import LinkButton from "../components/LinkButton";
 import styled from "styled-components";
 import FlexContainer from "../../../component/common/FlexContainer";
 
-const ScreenHeader = () => {
+const HeaderScreen = () => {
   return (
     <FlexContainer>
       <HeaderContainerFirst>
@@ -52,4 +52,4 @@ const HeaderContainerSecond = styled.div`
   max-width: 1200px;
 `;
 
-export default ScreenHeader;
+export default HeaderScreen;
