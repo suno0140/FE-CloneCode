@@ -13,18 +13,25 @@ const Footer = () => {
   );
 };
 
-const Container = styled.h5`
-  margin: none;
-  text-align: center;
-  padding: 2rem;
-  border-top: 3px solid black;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid black;
+  padding: 0.9rem;
+  min-width: 800px;
+  max-width: 1200px;
+  width: 90%;
+  padding: 1.5rem 0 1rem 0;
   h5 {
     font-weight: 800;
     margin: 0;
-    color: var(--color-gray);
+    color: var(--color-black);
   }
   p {
     font-weight: 200;
+    font-size: 0.2rem;
     margin-top: 0.5rem;
   }
 `;
