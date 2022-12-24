@@ -10,8 +10,9 @@ https://aged-dryer-e75.notion.site/05f0fc15de6847f9b39b1ac37f5912ef
 
 ## 팀 멤버
   
-프론트엔드 - 최선호  
-          - 안수빈
+프론트엔드  
+- 최선호  
+- 안수빈
 
 ### 역할분담
 
