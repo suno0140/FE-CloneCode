@@ -4,35 +4,33 @@ import FlexContainer from "../common/FlexContainer";
 
 const LoginPage = () => {
   return (
-    <FlexContainer>
-      <LoginContainerFirst>
-        <Loginfieldset>
-          <LoginTitle>Login</LoginTitle>
-          <LoginLabel>
-            <Loginspan>
-              <img src="http://iiinjeju.com/_dj/img/s62_login_login_icon.jpg"></img>
-            </Loginspan>
+    <LoginContainerFirst>
+      <Loginfieldset>
+        <LoginTitle>Login</LoginTitle>
+        <LoginLabel>
+          <Loginspan>
+            <img src="http://iiinjeju.com/_dj/img/s62_login_login_icon.jpg"></img>
+          </Loginspan>
 
-            <LoginInput></LoginInput>
-          </LoginLabel>
-          <LoginLabel>
-            <Loginspan>
-              <img src="http://iiinjeju.com/_dj/img/s62_login_pw_icon.jpg"></img>
-            </Loginspan>
-            <LoginInput></LoginInput>
-          </LoginLabel>
-          <LoginButton>로그인</LoginButton>
-          <LoginUl>
-            <LoginkakaoBtn>카카오계정 로그인</LoginkakaoBtn>
-          </LoginUl>
-          <LoginPtag>
-            아직 회원이 아니신가요? <br />
-            고객을 위한 다양한 혜택이 준비되어 있습니다.
-            <LoginAtag>회원가입</LoginAtag>
-          </LoginPtag>
-        </Loginfieldset>
-      </LoginContainerFirst>
-    </FlexContainer>
+          <LoginInput></LoginInput>
+        </LoginLabel>
+        <LoginLabel>
+          <Loginspan>
+            <img src="http://iiinjeju.com/_dj/img/s62_login_pw_icon.jpg"></img>
+          </Loginspan>
+          <LoginInput></LoginInput>
+        </LoginLabel>
+        <LoginButton>로그인</LoginButton>
+        <LoginUl>
+          <LoginkakaoBtn>카카오계정 로그인</LoginkakaoBtn>
+        </LoginUl>
+        <LoginPtag>
+          아직 회원이 아니신가요? <br />
+          고객을 위한 다양한 혜택이 준비되어 있습니다.
+          <LoginAtag>회원가입</LoginAtag>
+        </LoginPtag>
+      </Loginfieldset>
+    </LoginContainerFirst>
   );
 };
 
@@ -46,7 +44,9 @@ const LoginTitle = styled.div`
 `;
 
 const LoginContainerFirst = styled.div`
-  /* gap: 10px; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const LoginLabel = styled.label`
