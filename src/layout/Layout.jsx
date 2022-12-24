@@ -24,7 +24,7 @@ const Container = styled.div`
 `;
 
 const StLayout = styled.div`
-  width: 90%;
+  width: 100vh;
   padding: 0.9rem;
   min-width: 800px;
   max-width: 1200px;

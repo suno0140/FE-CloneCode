@@ -16,7 +16,10 @@ const ScreenHeader = () => {
           <LinkButton linkName="JOIN" />
         </div>
       </HeaderContainerFirst>
-      <hr />
+      <HeaderContainerSecond>
+        <LinkButton linkName="MARGZINE" fontsize="1rem" margin="1rem" />
+        <LinkButton linkName="SHOP" fontsize="1rem" margin="1rem" />
+      </HeaderContainerSecond>
     </FlexContainer>
   );
 };
@@ -29,12 +32,24 @@ const HeaderContainerFirst = styled.div`
   padding: 0.9rem;
   min-width: 800px;
   max-width: 1200px;
+  border-bottom: 2px solid var(--color-black);
   img {
     width: 5.5rem;
   }
   div {
     display: flex;
   }
+`;
+
+const HeaderContainerSecond = styled.div`
+  display: flex;
+  width: 90%;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid var(--color-black);
+  padding: 0 0.9rem;
+  min-width: 800px;
+  max-width: 1200px;
 `;
 
 export default ScreenHeader;
