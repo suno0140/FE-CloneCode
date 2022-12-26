@@ -9,7 +9,6 @@ import Signup from "../pages/Signup";
 import Cart from "../pages/Cart";
 import Product from "../pages/Product";
 
-
 const Router = () => {
   return (
     <BrowserRouter>

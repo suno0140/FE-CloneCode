@@ -26,7 +26,9 @@ const CartBodyTable = () => {
               src="http://iiinjeju.com/web/product/tiny/202209/177fdc866540c1c9dfc715dfc1171dd2.jpg"
             />
           </th>
-          <th scope="col">[문신기X정명국 에디션] 노인과 바다</th>
+          <th scope="col" style={{ textAlign: "left" }}>
+            [문신기X정명국 에디션] 노인과 바다
+          </th>
           <th scope="col">290,000원</th>
           <th scope="col">수량</th>
           <th scope="col">-</th>

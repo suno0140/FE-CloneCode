@@ -2,7 +2,12 @@ import React from "react";
 
 const CartHeadTable = () => {
   return (
-    <div style={{ color: "#a09494", borderBottom: "1px solid #e1e1e1" }}>
+    <div
+      style={{
+        color: "var(--color-gray)",
+        borderBottom: "1px solid var(--color-light-gray)",
+      }}
+    >
       <colgroup>
         <col style={{ width: "32px" }}></col>
         <col style={{ width: "110px" }}></col>

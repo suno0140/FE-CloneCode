@@ -5,7 +5,7 @@ const LoginPasswordInput = () => {
   return (
     <>
       <Loginspan>
-        <img src="http://iiinjeju.com/_dj/img/s62_login_login_icon.jpg"></img>
+        <img src="http://iiinjeju.com/_dj/img/s62_login_pw_icon.jpg"></img>
       </Loginspan>
       <LoginInput></LoginInput>
     </>
@@ -23,7 +23,7 @@ const LoginInput = styled.input`
   font-weight: bold;
   padding: 2px 2px 2px 3px;
   border: 0 none;
-  color: #111;
+  color: var(--color-black);
 `;
 
 const Loginspan = styled.span`
@@ -35,7 +35,7 @@ const Loginspan = styled.span`
   width: 90px;
   height: 35px;
   line-height: 38px;
-  background: #fff;
+  background: white;
   padding: 0 0 0 8px;
-  color: #c9c9c9;
+  color: var(--color-gray);
 `;

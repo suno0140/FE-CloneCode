@@ -30,8 +30,8 @@ const CartWhiteBtn1 = styled.button`
   margin: 2px 0 2px 8px;
   width: 100px;
   height: 38px;
-  background: #fff;
-  border: 1px solid #ddd;
+  background: white;
+  border: 1px solid var(--color-light-gray);
   text-align: center;
   font-size: 0.9rem;
 `;
@@ -40,8 +40,8 @@ const CartWhiteBtn2 = styled.button`
   margin: 2px 0 0 850px;
   width: 150px;
   height: 38px;
-  background: #fff;
-  border: 1px solid #ddd;
+  background: white;
+  border: 1px solid var(--color-light-gray);
   text-align: center;
   font-size: 0.9rem;
 `;
