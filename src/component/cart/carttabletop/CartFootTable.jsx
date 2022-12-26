@@ -2,7 +2,7 @@ import React from "react";
 
 const CartFootTable = () => {
   return (
-    <div style={{ borderBottom: "1px solid #e1e1e1" }}>
+    <div style={{ borderBottom: "1px solid var(--color-light-gray)" }}>
       <tfoot style={{ fontSize: "1.2rem" }}>
         <tr>
           <td colspan="10" style={{ padding: "20px 0 20px 0" }}>

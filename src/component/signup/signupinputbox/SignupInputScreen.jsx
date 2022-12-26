@@ -46,5 +46,5 @@ const SignupDiv = styled.div`
   font-size: 1rem;
   margin-top: 30px;
   padding-bottom: 30px;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid var(--color-light-gray);
 `;

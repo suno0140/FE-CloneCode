@@ -46,14 +46,14 @@ const CartMainDiv = styled.div`
 `;
 
 const CartDivbox = styled.div`
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid var(--color-light-gray);
 `;
 
 const CartDivSecond = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid #e1e1e1;
+  border: 1px solid var(--color-light-gray);
   border-bottom: none;
   width: 130px;
   margin-top: 50px;
@@ -65,6 +65,6 @@ const CartDivSecond = styled.div`
 const CartDivThird = styled.div`
   margin-top: 20px;
   padding-bottom: 11px;
-  border-bottom: 1px solid #e1e1e1;
+  border-bottom: 1px solid var(--color-light-gray);
   font-weight: bold;
 `;

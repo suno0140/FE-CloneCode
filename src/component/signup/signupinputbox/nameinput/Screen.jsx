@@ -23,7 +23,7 @@ const SignupInput = styled.input`
   letter-spacing: 1px;
   font-weight: bold;
   padding: 2px 2px 2px 3px;
-  border: 1px solid #d5d5d5;
+  border: 1px solid var(--color-light-gray);
   margin-left: 70px;
   margin-right: 10px;
   padding-right: 10px;

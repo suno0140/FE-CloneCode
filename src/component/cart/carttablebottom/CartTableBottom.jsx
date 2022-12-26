@@ -5,16 +5,14 @@ const CartTableBottom = () => {
   return (
     <div style={{ marginTop: "50px" }}>
       <table style={{ fontSize: "1.3rem" }}>
-        <thead style={{ color: "#6e6868" }}>
+        <thead style={{ color: "var(--color-gray)" }}>
           <tr>
             <th
               style={{
                 margin: "0",
                 width: "240px",
                 padding: "15px 0",
-                border: "1px solid #e1e1e1",
-
-                borderBottom: "none",
+                border: "1px solid var(--color-light-gray)",
               }}
             >
               총 상품금액
@@ -22,9 +20,7 @@ const CartTableBottom = () => {
             <th
               style={{
                 width: "250px",
-                border: "1px solid #e1e1e1",
-                borderLeft: "none",
-                borderBottom: "none",
+                border: "1px solid var(--color-light-gray)",
               }}
             >
               총 배송비
@@ -32,9 +28,7 @@ const CartTableBottom = () => {
             <th
               style={{
                 width: "720px",
-                border: "1px solid #e1e1e1",
-                borderLeft: "none",
-                borderBottom: "none",
+                border: "1px solid var(--color-light-gray)",
               }}
             >
               결제예정금액
@@ -47,7 +41,7 @@ const CartTableBottom = () => {
               style={{
                 width: "250px",
                 padding: "15px 0",
-                border: "1px solid #e1e1e1",
+                border: "1px solid var(--color-light-gray)",
               }}
             >
               290,000원
@@ -55,8 +49,7 @@ const CartTableBottom = () => {
             <th
               style={{
                 width: "250px",
-                border: "1px solid #e1e1e1",
-                borderLeft: "none",
+                border: "1px solid var(--color-light-gray)",
               }}
             >
               + 0원
@@ -64,8 +57,7 @@ const CartTableBottom = () => {
             <th
               style={{
                 width: "720px",
-                border: "1px solid #e1e1e1",
-                borderLeft: "none",
+                border: "1px solid var(--color-light-gray)",
               }}
             >
               = 290,000원
