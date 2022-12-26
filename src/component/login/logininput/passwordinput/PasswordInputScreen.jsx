@@ -1,0 +1,41 @@
+import React from "react";
+import styled from "styled-components";
+
+const LoginPasswordInput = () => {
+  return (
+    <>
+      <Loginspan>
+        <img src="http://iiinjeju.com/_dj/img/s62_login_login_icon.jpg"></img>
+      </Loginspan>
+      <LoginInput></LoginInput>
+    </>
+  );
+};
+
+export default LoginPasswordInput;
+
+const LoginInput = styled.input`
+  float: left;
+  width: 300px;
+  height: 25px;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  padding: 2px 2px 2px 3px;
+  border: 0 none;
+  color: #111;
+`;
+
+const Loginspan = styled.span`
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  margin-left: 7px;
+  float: left;
+  width: 90px;
+  height: 35px;
+  line-height: 38px;
+  background: #fff;
+  padding: 0 0 0 8px;
+  color: #c9c9c9;
+`;
