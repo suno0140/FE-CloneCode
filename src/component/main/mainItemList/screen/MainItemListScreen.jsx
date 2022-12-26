@@ -1,18 +1,18 @@
 import React from "react";
 import styled from "styled-components";
-import ItemScreen from "../../../common/item/ItemScreen";
+import { fadeInFromLeftAnimation } from "../../../../styles/animations";
+import GetNewItems from "../components/GetNewItems";
 
 const MainItemListScreen = () => {
   return (
     <Container>
-      <h3>NEW ITEMS</h3>
-      <p></p>
-      <h5>재주상회에서 소개하는 새로운 제품들 입니다.</h5>
+      <TitleContainer>
+        <h3>NEW ITEMS</h3>
+        <p></p>
+        <h5>재주상회에서 소개하는 새로운 제품들 입니다.</h5>
+      </TitleContainer>
       <div>
-        <ItemScreen />
-        <ItemScreen />
-        <ItemScreen />
-        <ItemScreen />
+        <GetNewItems />
       </div>
     </Container>
   );
@@ -44,6 +44,13 @@ const Container = styled.div`
     display: flex;
     justify-content: center;
   }
+`;
+
+const TitleContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  ${fadeInFromLeftAnimation}
 `;
 
 export default MainItemListScreen;

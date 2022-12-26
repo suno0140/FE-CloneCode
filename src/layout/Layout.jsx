@@ -3,12 +3,14 @@ import styled from "styled-components";
 import { Outlet } from "react-router-dom";
 import Header from "./header/Header";
 import Footer from "./Footer";
+import useScrollPosition from "../hooks/useScrollPosition";
 
 const Layout = () => {
+  const scrollPosition = useScrollPosition();
   return (
     <Container>
       <Header />
-      <StLayout>
+      <StLayout marginTop={scrollPosition <= 36 && "7.5rem"}>
         <Outlet />
       </StLayout>
       <Footer />
@@ -25,6 +27,8 @@ const Container = styled.div`
 
 const StLayout = styled.div`
   flex: 1;
+  margin-top: ${({ marginTop }) => marginTop || "4.5rem"};
+  transition: all ease-in-out 0.2s;
 `;
 
 export default Layout;
