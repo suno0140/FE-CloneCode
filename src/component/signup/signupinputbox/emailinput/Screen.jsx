@@ -1,34 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
+import { changeField } from "../../../../redux/modules/signUpSlice";
+import { useDispatch } from "react-redux";
 
 const EmailInput = ({ starImg }) => {
-  const [email, setEmail] = useState("");
-  const [EmailMessage, setEmailMessage] = useState("");
-  const [isEmail, setIsEmail] = useState(false);
+  const dispatch = useDispatch();
 
-  const onChangeEmail = (e) => {
-    setEmail(e.target.value);
-    if (
-      /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/.test(
-        e.target.value
-      )
-    ) {
-      setEmailMessage(" 유효한 이메일을 입력해주세요 ");
-      setIsEmail(false);
-    } else {
-      setIsEmail(true);
-    }
+  const onChangeInputHandler = (event) => {
+    const { name, value } = event.target;
+    dispatch(
+      changeField({
+        form: "signUp",
+        key: name,
+        value,
+      })
+    );
   };
+
   return (
     <>
       <SignupDiv>
         이메일
         <img src={starImg}></img>
       </SignupDiv>
-      <SignupInput onChange={onChangeEmail}></SignupInput>
-      {email.length > 0 && (
-        <span style={{ fontSize: "0.8rem" }}>{EmailMessage}</span>
-      )}
+      <SignupInput
+        name="email"
+        type="email"
+        onChange={onChangeInputHandler}
+      ></SignupInput>
     </>
   );
 };

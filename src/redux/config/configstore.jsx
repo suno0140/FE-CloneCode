@@ -1,9 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import productList from "../modules/productListSlice";
+import signUpPost from "../modules/signUpSlice";
+// import productList from "../modules/productListSlice";
 
 const store = configureStore({
   reducer: {
-    productList,
+    // productList,
+    // productListSlice,
+    signUpPost,
   },
 });
 

@@ -1,18 +1,19 @@
 import React from "react";
 import styled from "styled-components";
-import { useState } from "react";
+import { changeField } from "../../../../redux/modules/signUpSlice";
+import { useDispatch } from "react-redux";
 
 const NameInput = ({ starImg }) => {
-  const [name, setName] = useState("");
-  const [isName, setIsName] = useState(false);
-
-  const onChangeName = (e) => {
-    setName(e.target.value);
-    if (e.target.value < 3) {
-      setIsName(false);
-    } else {
-      setIsName(true);
-    }
+  const dispatch = useDispatch();
+  const onChangeInputHandler = (event) => {
+    const { name, value } = event.target;
+    dispatch(
+      changeField({
+        form: "signUp",
+        key: name,
+        value,
+      })
+    );
   };
   return (
     <>
@@ -20,7 +21,7 @@ const NameInput = ({ starImg }) => {
         이름
         <img src={starImg}></img>
       </SignupDiv>
-      <SignupInput onChange={onChangeName}></SignupInput>
+      <SignupInput name="name" onChange={onChangeInputHandler}></SignupInput>
     </>
   );
 };

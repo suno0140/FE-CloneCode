@@ -1,35 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
+import { changeField } from "../../../../redux/modules/signUpSlice";
+import { useDispatch } from "react-redux";
 
 const PasswordInput = ({ starImg }) => {
-  const [password, setPassWord] = useState("");
-  // const [passwordMessage, setPassWordMessage] = useState("");
-  const [isPassWord, setIsPassWord] = useState(false);
+  const dispatch = useDispatch();
 
-  const [passwordConfirm, setPasswordConfirm] = useState("");
-  const [passwordConfirmMessage, setPasswordConfirmMessage] = useState("");
-  const [isPasswordConfirm, setIsPasswordConfirm] = useState(false);
-
-  const onChangePassword = (e) => {
-    setPassWord(e.target.value);
-    if (
-      /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{10,16}$/.test(password)
-    ) {
-      setIsPassWord(false);
-    } else {
-      setIsPassWord(true);
-    }
-  };
-
-  const onConfirmPassword = (e) => {
-    setPasswordConfirm(e.target.value);
-    if (password !== passwordConfirm) {
-      // setPasswordConfirmMessage("비밀번호가 일치하지 않습니다.");
-      setIsPasswordConfirm(false);
-    } else {
-      setPasswordConfirmMessage(" ");
-      setIsPasswordConfirm(true);
-    }
+  const onChangeInputHandler = (event) => {
+    const { name, value } = event.target;
+    dispatch(
+      changeField({
+        form: "signUp",
+        key: name,
+        value,
+      })
+    );
   };
 
   return (
@@ -41,7 +26,11 @@ const PasswordInput = ({ starImg }) => {
         </SignupDivSecond>
 
         <SignupDivThird>
-          <SignupInput onChange={onChangePassword}></SignupInput>
+          <SignupInput
+            name="password"
+            type="password"
+            onChange={onChangeInputHandler}
+          ></SignupInput>
           <SignupPtagSecond>
             (영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자 ~ 16자)
           </SignupPtagSecond>
@@ -52,9 +41,11 @@ const PasswordInput = ({ starImg }) => {
           비밀번호 확인
           <img src={starImg}></img>
         </SignupDivSecond>
-        <SignupInput onChange={onConfirmPassword}></SignupInput>
-
-        <span style={{ fontSize: "0.8rem" }}>{passwordConfirmMessage}</span>
+        <SignupInput
+          name="passwordcheck"
+          type="password"
+          onChange={onChangeInputHandler}
+        ></SignupInput>
       </SignupDiv>
     </>
   );
