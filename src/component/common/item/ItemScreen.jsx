@@ -1,16 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { fadeInFromBottomAnimation } from "../../../styles/animations";
 
-const ItemScreen = () => {
+const ItemScreen = ({ mediumThumbnailImgUrl, name, price, caption }) => {
   return (
     <Container>
-      <img
-        src="http://iiinjeju.com/web/product/medium/202209/2298aa037d5acc9195621d6a163a2f54.jpg"
-        alt="잡지"
-      ></img>
-      <div>매거진&lt;인iiin&gt; vol.35 기쁜 우리 잔칫날</div>
-      <h6>섬에서 혼례는 집안의 경사이자 몇 날 며칠씩 여는 마을 축제였다.</h6>
-      <h5>6,900원</h5>
+      <img src={mediumThumbnailImgUrl} alt={name}></img>
+      <div>{name}</div>
+      <h6>{caption}</h6>
+      <h5>{price}원</h5>
     </Container>
   );
 };
@@ -18,10 +16,12 @@ const ItemScreen = () => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 12rem;
-  margin: 0 0.6rem;
+  width: 15rem;
+  margin: 3.5rem 1rem 0 1rem;
+  z-index: -1;
   img {
     width: 100%;
+    ${fadeInFromBottomAnimation}
   }
   div {
     text-align: center;

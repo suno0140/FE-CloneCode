@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
+
+import productList from "../modules/productListSlice";
+import newItems from "../modules/mainNewItemSlice";
 import signUpPost from "../modules/signUpSlice";
-// import productList from "../modules/productListSlice";
 
 const store = configureStore({
   reducer: {
-    // productList,
-    // productListSlice,
+    productList,
+    newItems,
     signUpPost,
   },
 });
