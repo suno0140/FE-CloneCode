@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import SocialLogin from "./sociallogin/SocialScreen";
-import LoginIdInput from "./logininput/idinput/IdinputScreen";
-import LoginPasswordInput from "./logininput/passwordinput/PasswordInputScreen";
-import LoginBtn from "./logininput/loginbtn/LoginBtn";
+import SocialLogin from "../sociallogin/SocialScreen";
+import LoginIdInput from "../logininput/idinput/IdinputScreen";
+import LoginPasswordInput from "../logininput/passwordinput/PasswordInputScreen";
+import LoginBtn from "../logininput/loginbtn/LoginBtn";
 
 const LoginPage = () => {
   return (
@@ -50,8 +50,8 @@ const LoginLabel = styled.div`
   align-items: center;
   width: 410px;
   margin: 0 0 9px;
-  border: 1px solid #d9d9d9;
-  color: #8f8f91;
+  border: 1px solid var(--color-light-gray);
+  color: var(--color-gray);
 `;
 
 const Loginfieldset = styled.div`
@@ -66,18 +66,18 @@ const LoginPtag = styled.p`
   font-weight: 300;
   line-height: 1.5;
   margin: 30px 0 0 0;
-  border: 1px solid #e1e1e1;
+  border: 1px solid var(--color-light-gray);
   text-align: center;
   padding: 33px 0 8px 0;
-  color: #777;
+  color: var(--color-gray);
 `;
 
 const LoginAtag = styled.a`
   font-weight: 500;
   letter-spacing: 0.05em;
-  border: 2px solid #222;
-  background: #fff;
-  color: #111;
+  border: 2px solid var(--color-black);
+  background: white;
+  color: var(--color-black);
   padding: 13px 43px;
   margin: 20px 0 30px 0 !important;
   font-size: 1rem;

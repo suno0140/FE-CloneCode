@@ -1,18 +1,29 @@
 import React from "react";
 import styled from "styled-components";
+import { changeField } from "../../../../redux/modules/signUpSlice";
+import { useDispatch } from "react-redux";
 
-const IdInput = () => {
+const IdInput = ({ starImg }) => {
+  const dispatch = useDispatch();
+  const onChangeInputHandler = (event) => {
+    const { name, value } = event.target;
+    dispatch(
+      changeField({
+        form: "signUp",
+        key: name,
+        value,
+      })
+    );
+  };
+
   return (
     <>
       <SignupDiv>
         아이디
-        <img
-          src={
-            "http://img.echosting.cafe24.com/skin/base/common/ico_required.gif"
-          }
-        ></img>
+        <img src={starImg}></img>
       </SignupDiv>
-      <SignupInput></SignupInput>
+      <SignupInput name="loginId" onChange={onChangeInputHandler}></SignupInput>
+
       <SignupPtag>(영문소문자/숫자,4~16자)</SignupPtag>
     </>
   );
@@ -36,7 +47,7 @@ const SignupInput = styled.input`
   letter-spacing: 1px;
   font-weight: bold;
   padding: 2px 2px 2px 3px;
-  border: 1px solid #d5d5d5;
+  border: 1px solid var(--color-light-gray);
   margin-left: 70px;
   margin-right: 10px;
   padding-right: 10px;

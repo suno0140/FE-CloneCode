@@ -4,7 +4,7 @@ import styled from "styled-components";
 const LoginBtn = () => {
   return (
     <>
-      <LoginButton>로그인</LoginButton>;
+      <LoginButton>로그인</LoginButton>
     </>
   );
 };
@@ -18,8 +18,8 @@ const LoginButton = styled.button`
   width: 410px;
   margin: 30px 0 5px;
   padding: 10px 0 10px;
-  border: 1px solid #222;
-  background-color: #222;
+  border: 1px solid var(--color-black);
+  background-color: var(--color-black);
   color: white;
   font-size: 1rem;
 `;

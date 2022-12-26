@@ -1,17 +1,36 @@
 import React from "react";
 import styled from "styled-components";
+import { changeField } from "../../../../redux/modules/signUpSlice";
+import { useDispatch } from "react-redux";
 
-const PasswordInput = () => {
+const PasswordInput = ({ starImg }) => {
+  const dispatch = useDispatch();
+
+  const onChangeInputHandler = (event) => {
+    const { name, value } = event.target;
+    dispatch(
+      changeField({
+        form: "signUp",
+        key: name,
+        value,
+      })
+    );
+  };
+
   return (
     <>
       <SignupDiv>
         <SignupDivSecond>
           비밀번호
-          <img src="http://img.echosting.cafe24.com/skin/base/common/ico_required.gif"></img>
+          <img src={starImg}></img>
         </SignupDivSecond>
 
         <SignupDivThird>
-          <SignupInput></SignupInput>
+          <SignupInput
+            name="password"
+            type="password"
+            onChange={onChangeInputHandler}
+          ></SignupInput>
           <SignupPtagSecond>
             (영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 10자 ~ 16자)
           </SignupPtagSecond>
@@ -20,9 +39,13 @@ const PasswordInput = () => {
       <SignupDiv>
         <SignupDivSecond>
           비밀번호 확인
-          <img src="http://img.echosting.cafe24.com/skin/base/common/ico_required.gif"></img>
+          <img src={starImg}></img>
         </SignupDivSecond>
-        <SignupInput></SignupInput>
+        <SignupInput
+          name="passwordcheck"
+          type="password"
+          onChange={onChangeInputHandler}
+        ></SignupInput>
       </SignupDiv>
     </>
   );
@@ -49,7 +72,7 @@ const SignupInput = styled.input`
   letter-spacing: 1px;
   font-weight: bold;
   padding: 2px 2px 2px 3px;
-  border: 1px solid #d5d5d5;
+  border: 1px solid var(--color-light-gray);
   margin-left: 70px;
   margin-right: 10px;
   padding-right: 10px;
@@ -67,5 +90,5 @@ const SignupDiv = styled.div`
   font-size: 1rem;
   margin-top: 30px;
   padding-bottom: 30px;
-  border-bottom: 1px solid #ececec;
+  border-bottom: 1px solid var(--color-light-gray);
 `;
