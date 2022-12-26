@@ -10,7 +10,7 @@ const Layout = () => {
   return (
     <Container>
       <Header />
-      <StLayout marginTop={scrollPosition <= 36 && "7.5rem"}>
+      <StLayout marginTop={scrollPosition <= 36 && "7.7rem"}>
         <Outlet />
       </StLayout>
       <Footer />
