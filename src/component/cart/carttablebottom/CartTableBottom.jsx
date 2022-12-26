@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 
 const CartTableBottom = () => {
   return (
@@ -13,6 +12,7 @@ const CartTableBottom = () => {
                 width: "240px",
                 padding: "15px 0",
                 border: "1px solid var(--color-light-gray)",
+                borderBottom: "none",
               }}
             >
               총 상품금액
@@ -21,6 +21,8 @@ const CartTableBottom = () => {
               style={{
                 width: "250px",
                 border: "1px solid var(--color-light-gray)",
+                borderBottom: "none",
+                borderLeft: "none",
               }}
             >
               총 배송비
@@ -29,6 +31,8 @@ const CartTableBottom = () => {
               style={{
                 width: "720px",
                 border: "1px solid var(--color-light-gray)",
+                borderBottom: "none",
+                borderLeft: "none",
               }}
             >
               결제예정금액
@@ -50,6 +54,7 @@ const CartTableBottom = () => {
               style={{
                 width: "250px",
                 border: "1px solid var(--color-light-gray)",
+                borderLeft: "none",
               }}
             >
               + 0원
@@ -58,6 +63,7 @@ const CartTableBottom = () => {
               style={{
                 width: "720px",
                 border: "1px solid var(--color-light-gray)",
+                borderLeft: "none",
               }}
             >
               = 290,000원

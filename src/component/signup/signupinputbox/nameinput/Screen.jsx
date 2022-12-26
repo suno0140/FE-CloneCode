@@ -1,14 +1,26 @@
 import React from "react";
 import styled from "styled-components";
+import { useState } from "react";
 
-const NameInput = () => {
+const NameInput = ({ starImg }) => {
+  const [name, setName] = useState("");
+  const [isName, setIsName] = useState(false);
+
+  const onChangeName = (e) => {
+    setName(e.target.value);
+    if (e.target.value < 3) {
+      setIsName(false);
+    } else {
+      setIsName(true);
+    }
+  };
   return (
     <>
       <SignupDiv>
         이름
-        <img src="http://img.echosting.cafe24.com/skin/base/common/ico_required.gif"></img>
+        <img src={starImg}></img>
       </SignupDiv>
-      <SignupInput></SignupInput>
+      <SignupInput onChange={onChangeName}></SignupInput>
     </>
   );
 };

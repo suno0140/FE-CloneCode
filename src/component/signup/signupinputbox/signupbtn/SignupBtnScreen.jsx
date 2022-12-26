@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 const SignupBtn = () => {
-  return <Signupbutton>회원가입</Signupbutton>;
+  const onClickSignup = () => {};
+  return <Signupbutton onClick={onClickSignup}>회원가입</Signupbutton>;
 };
 
 export default SignupBtn;

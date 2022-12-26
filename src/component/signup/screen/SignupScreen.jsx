@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import SignupInput from "./signupinputbox/SignupInputScreen";
+import SignupInput from "../signupinputbox/SignupInputScreen";
 
 const SignupPage = () => {
   return (

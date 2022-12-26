@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import SocialLogin from "./sociallogin/SocialScreen";
-import LoginIdInput from "./logininput/idinput/IdinputScreen";
-import LoginPasswordInput from "./logininput/passwordinput/PasswordInputScreen";
-import LoginBtn from "./logininput/loginbtn/LoginBtn";
+import SocialLogin from "../sociallogin/SocialScreen";
+import LoginIdInput from "../logininput/idinput/IdinputScreen";
+import LoginPasswordInput from "../logininput/passwordinput/PasswordInputScreen";
+import LoginBtn from "../logininput/loginbtn/LoginBtn";
 
 const LoginPage = () => {
   return (

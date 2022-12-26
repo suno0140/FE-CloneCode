@@ -12,7 +12,7 @@ const SignupInput = () => {
     "http://img.echosting.cafe24.com/skin/base/common/ico_required.gif";
   return (
     <SignupBox>
-      <SocialLogin starImg={img} />
+      <SocialLogin />
       <SignupDiv>
         <IdInput starImg={img} />
       </SignupDiv>
