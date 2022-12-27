@@ -14,7 +14,6 @@ const Container = styled.div`
   margin-top: 3rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  z-index: -1;
 `;
 
 export default ProductListGridScreen;
