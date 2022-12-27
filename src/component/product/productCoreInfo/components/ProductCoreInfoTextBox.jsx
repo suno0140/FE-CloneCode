@@ -1,31 +1,80 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
+import { baseURLApiV1 } from "../../../../core/api";
 
 const ProductCoreInfoTextBox = () => {
+  const { product } = useSelector((state) => state.product);
+  const productId = product.productId;
+  const [count, setCount] = useState(1);
+
+  const onClickUp = () => {
+    if (count < 10) {
+      setCount((count) => count + 1);
+    } else {
+      alert("최대주문 수량입니다.");
+    }
+  };
+  const onClickDown = () => {
+    if (count > 1) {
+      setCount((count) => count - 1);
+    } else {
+      alert("최소주문 수량은 1개 입니다.");
+    }
+  };
+
+  const onClickCart = async () => {
+    try {
+      const cart = { productId, count };
+      const data = await baseURLApiV1.post("/cart", cart);
+      if (data.data.statusCode === 201) {
+        return data;
+      } else {
+        alert(data.data.msg);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <Container>
-      <h3>[문신기X정명국 에디션] 노인과 바다</h3>
-      <div>
-        <h5>판매가</h5>
-        <h2>290,000원</h2>
-      </div>
+      <ProductTitle>{product.name}</ProductTitle>
+      <ProductSecondTitle>
+        <h4>판매가</h4>
+        <h2>{product.price}원</h2>
+      </ProductSecondTitle>
       <CountLineContainer>
-        <h5>[문신기X정명국 에디션] 노인과 바다</h5>
+        <h5>{product.name}</h5>
         <CountContainer>
-          <input type="text" value="1"></input>
+          <CarPtag> {count} </CarPtag>
           <div>
-            <div>▲</div>
-            <div>▼</div>
+            <Upbutton
+              onClick={(count) => {
+                onClickUp(count);
+              }}
+            ></Upbutton>
+            <Downbutton
+              onClick={(count) => {
+                onClickDown(count);
+              }}
+            ></Downbutton>
           </div>
         </CountContainer>
-        <h6>290,000원</h6>
+        <h4>{product.price}원</h4>
       </CountLineContainer>
       <TotalContainer>
-        <h5>TOTAL</h5>
-        <h3>1,160,000원</h3>
+        <h5>TOTAL :</h5>
+        <h2>{product.price * count}원</h2>
+        <p>({count}개)</p>
       </TotalContainer>
-      <button>장바구니</button>
+      <CartButton
+        onClick={() => {
+          onClickCart();
+        }}
+      >
+        장바구니
+      </CartButton>
     </Container>
   );
 };
@@ -58,17 +107,30 @@ const Container = styled.div`
       font-size: 0.1rem;
     }
   }
-  button {
-    width: 100%;
-    background-color: var(--color-black);
-    font-size: 1rem;
-    color: white;
-    font-weight: 700;
-    padding: 0.7rem;
-    letter-spacing: 3px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  }
 `;
+const CartButton = styled.button`
+  width: 100%;
+  background-color: var(--color-black);
+  font-size: 1rem;
+  color: white;
+  font-weight: 700;
+  padding: 0.7rem;
+  letter-spacing: 3px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+`;
+const ProductTitle = styled.div`
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 30px 0;
+`;
+
+const ProductSecondTitle = styled.div`
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 3px 0;
+  border-bottom: 1px solid var(--color-gray);
+`;
+
 const CountLineContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -107,6 +169,31 @@ const TotalContainer = styled.div`
     font-size: 0.1rem;
     font-weight: 800;
   }
+`;
+
+const Upbutton = styled.button`
+  width: 15px;
+  height: 11px;
+  background-image: url("http://img.echosting.cafe24.com/skin/base_ko_KR/product/btn_count_up.gif");
+  background-position: 17px;
+  border: 1px solid var(--color-gray);
+`;
+
+const Downbutton = styled.button`
+  background-position: 17px;
+  width: 15px;
+  height: 11px;
+  background-image: url("http://img.echosting.cafe24.com/skin/base_ko_KR/product/btn_count_down.gif");
+  border: 1px solid var(--color-gray);
+`;
+
+const CarPtag = styled.div`
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 15px;
+  height: 20px;
+  border: 1px solid var(--color-gray);
 `;
 
 export default ProductCoreInfoTextBox;

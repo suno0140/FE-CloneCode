@@ -1,14 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import ProductCoreInfoTextBox from "../components/ProductCoreInfoTextBox";
+import { useSelector } from "react-redux";
 
 const ProductCoreInfoScreen = () => {
+  const { product } = useSelector((state) => state.product);
   return (
     <Container>
-      <img
-        src="http://iiinjeju.com/web/product/big/202209/8aa3aa6a1eeb0373cda71d27e568a7ee.jpg"
-        alt="표지"
-      />
+      <img src={product.thumbnailImgUrl} alt="표지" />
       <ProductCoreInfoTextBox />
     </Container>
   );
