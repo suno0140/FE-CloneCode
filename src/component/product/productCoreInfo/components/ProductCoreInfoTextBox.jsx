@@ -1,17 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 const ProductCoreInfoTextBox = () => {
+  const { product } = useSelector((state) => state.product);
+  const onClickCart = () => {};
+
   return (
     <Container>
-      <h3>[문신기X정명국 에디션] 노인과 바다</h3>
+      <h3>{product.name}</h3>
       <div>
         <h5>판매가</h5>
-        <h2>290,000원</h2>
+        <h2>{product.price}</h2>
       </div>
       <CountLineContainer>
-        <h5>[문신기X정명국 에디션] 노인과 바다</h5>
+        <h5>{product.name}</h5>
         <CountContainer>
           <input type="text" value="1"></input>
           <div>
@@ -19,13 +22,19 @@ const ProductCoreInfoTextBox = () => {
             <div>▼</div>
           </div>
         </CountContainer>
-        <h6>290,000원</h6>
+        <h6>{product.price}</h6>
       </CountLineContainer>
       <TotalContainer>
         <h5>TOTAL</h5>
-        <h3>1,160,000원</h3>
+        <h3>{product.price}</h3>
       </TotalContainer>
-      <button>장바구니</button>
+      <button
+        onClick={() => {
+          onClickCart();
+        }}
+      >
+        장바구니
+      </button>
     </Container>
   );
 };
