@@ -1,19 +1,24 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 const LinkButton = ({
   linkName,
   linkTo,
   fontsize,
   margin,
+  onClick,
   isHoverNeed = false,
 }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
   const navigate = useNavigate();
+  const subCategories = useSelector((state) => state.header[linkName]);
+
   return (
     <>
       <LinkButtonForm margin={margin} fontsize={fontsize}>
+        {/* 메인 카테고리 버튼 */}
         <Link
           to={linkTo}
           onMouseOver={() => {
@@ -22,10 +27,12 @@ const LinkButton = ({
           onMouseOut={() => {
             setIsMouseOver(false);
           }}
+          onClick={onClick}
         >
           {linkName}
         </Link>
 
+        {/* 호버 시 세부 카테고리 버튼 */}
         {isHoverNeed && isMouseOver && (
           <Container
             onMouseOver={() => {
@@ -36,20 +43,20 @@ const LinkButton = ({
             }}
           >
             <ul>
-              <li
-                onClick={() => {
-                  navigate("/product/list?subcategory=iiin&page=1");
-                }}
-              >
-                iiin
-              </li>
-              <li
-                onClick={() => {
-                  navigate("product/list?subcategory=finders&page=1");
-                }}
-              >
-                FINDERS
-              </li>
+              {subCategories.map((subcategory) => {
+                return (
+                  <li
+                    key={subcategory}
+                    onClick={() => {
+                      navigate(
+                        `/product/list?subcategory=${subcategory}&page=1`
+                      );
+                    }}
+                  >
+                    {subcategory}
+                  </li>
+                );
+              })}
             </ul>
             <div>
               <img
@@ -83,7 +90,7 @@ const Container = styled.div`
   justify-content: baseline;
   background: white;
   transform: translate(-3rem, 0.3rem);
-  padding: 1rem 2rem 1rem 1rem;
+  padding: 1rem 3rem 1rem 1rem;
   border: 1px solid var(--color-black);
   width: 23rem;
   ul {
@@ -92,7 +99,7 @@ const Container = styled.div`
     padding: 0;
     li {
       position: relative;
-      width: 7rem;
+      width: 8rem;
       text-decoration: none;
       list-style: none;
       padding-bottom: 0.5rem;
