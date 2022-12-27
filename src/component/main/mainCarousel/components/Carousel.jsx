@@ -10,6 +10,7 @@ const Carousel = () => {
   const imgs = [
     "http://iiinjeju.com/_dj/img/main/%EC%82%AC%EB%B3%B8%20-22%EA%B0%80%EC%9D%84%20%ED%99%88%ED%8E%98%EC%9D%B4%EC%A7%80%20%EB%B0%B0%EB%84%88%20%EB%B3%B5%EC%82%AC.png",
     "http://iiinjeju.com/_dj/img/main/1225_bg.jpg",
+    "https://iiinjeju.com/web/upload/category/editor/2022/12/27/7b9746c32aecf19bf3b82f218f8ed973.png",
   ];
 
   function resetTimeout() {
@@ -36,7 +37,7 @@ const Carousel = () => {
           <div>
             <img
               onClick={() => {
-                setIndex(0);
+                setIndex(index === 0 ? 0 : +index + 1);
               }}
               src="http://iiinjeju.com/_dj/img/btn_prev.png"
               alt="leftArrow"
@@ -45,7 +46,9 @@ const Carousel = () => {
           <div>
             <img
               onClick={() => {
-                setIndex(1);
+                setIndex(
+                  index === imgs.length - 1 ? imgs.length - 1 : +index - 1
+                );
               }}
               src="http://iiinjeju.com/_dj/img/btn_next.png"
               alt="rightArrow"
@@ -53,7 +56,7 @@ const Carousel = () => {
           </div>
         </Container>
         <SlideShowSlider
-          style={{ transform: `translate3d(${index * 100}%, 0, 0)` }}
+          style={{ transform: `translate3d(${(index - 1) * 100}%, 0, 0)` }}
         >
           {imgs.map((img, index) => (
             <Slide key={index} src={img}></Slide>
