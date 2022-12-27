@@ -29,6 +29,7 @@ const GetProduct = () => {
             name={product.name}
             price={product.price}
             caption={product.caption}
+            linkTo={`/product/${product.productId}`}
           />
         </div>
       ))}
