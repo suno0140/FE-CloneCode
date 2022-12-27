@@ -31,23 +31,27 @@ const Carousel = () => {
 
   return (
     <>
-      <Container>
-        <img
-          src="http://iiinjeju.com/_dj/img/btn_prev.png"
-          alt="leftArrow"
-          onClick={() => {
-            setIndex(0);
-          }}
-        />
-        <img
-          src="http://iiinjeju.com/_dj/img/btn_next.png"
-          alt="rightArrow"
-          onClick={() => {
-            setIndex(1);
-          }}
-        />
-      </Container>
       <SlideShow>
+        <Container>
+          <div>
+            <img
+              onClick={() => {
+                setIndex(0);
+              }}
+              src="http://iiinjeju.com/_dj/img/btn_prev.png"
+              alt="leftArrow"
+            />
+          </div>
+          <div>
+            <img
+              onClick={() => {
+                setIndex(1);
+              }}
+              src="http://iiinjeju.com/_dj/img/btn_next.png"
+              alt="rightArrow"
+            />
+          </div>
+        </Container>
         <SlideShowSlider
           style={{ transform: `translate3d(${index * 100}%, 0, 0)` }}
         >
@@ -61,28 +65,26 @@ const Carousel = () => {
 };
 
 const Container = styled.div`
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
   width: 100%;
-  position: relative;
+  z-index: 1;
+  top: 15rem;
   img {
-    position: absolute;
     &:first-child {
-      left: 1rem;
-      top: 15rem;
-      width: 2.5rem;
-      cursor: pointer;
-      z-index: 2;
+      margin-left: 1rem;
     }
     &:last-child {
-      right: 1rem;
-      top: 15rem;
-      width: 2.5rem;
-      cursor: pointer;
-      z-index: 2;
+      margin-right: 1rem;
     }
+    width: 2.5rem;
+    cursor: pointer;
   }
 `;
 
 const SlideShow = styled.div`
+  position: relative;
   margin: 0 auto;
   overflow: hidden;
   max-width: 78rem;

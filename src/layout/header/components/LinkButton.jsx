@@ -24,38 +24,41 @@ const LinkButton = ({
           }}
         >
           {linkName}
-          {isHoverNeed && isMouseOver && (
-            <Container
-              onMouseOver={() => {
-                setIsMouseOver(true);
-              }}
-              onMouseOut={() => {
-                setIsMouseOver(false);
-              }}
-            >
-              <ul>
-                <li
-                  onClick={() => {
-                    navigate("/product/list?subcategory=iiin&page=1");
-                  }}
-                >
-                  iiin
-                </li>
-                <li
-                  onClick={() => {
-                    navigate("product/list?subcategory=finders&page=1");
-                  }}
-                >
-                  FINDERS
-                </li>
-              </ul>
+        </Link>
+
+        {isHoverNeed && isMouseOver && (
+          <Container
+            onMouseOver={() => {
+              setIsMouseOver(true);
+            }}
+            onMouseOut={() => {
+              setIsMouseOver(false);
+            }}
+          >
+            <ul>
+              <li
+                onClick={() => {
+                  navigate("/product/list?subcategory=iiin&page=1");
+                }}
+              >
+                iiin
+              </li>
+              <li
+                onClick={() => {
+                  navigate("product/list?subcategory=finders&page=1");
+                }}
+              >
+                FINDERS
+              </li>
+            </ul>
+            <div>
               <img
                 src="http://iiinjeju.com/_dj/img/category_item_img_1.jpg"
                 alt="상품 추천"
               ></img>
-            </Container>
-          )}
-        </Link>
+            </div>
+          </Container>
+        )}
       </LinkButtonForm>
     </>
   );
@@ -76,27 +79,33 @@ const LinkButtonForm = styled.div`
 
 const Container = styled.div`
   position: absolute;
-  transform: translate(-3rem, 0.3rem);
   display: flex;
   justify-content: baseline;
   background: white;
+  transform: translate(-3rem, 0.3rem);
   padding: 1rem 2rem 1rem 1rem;
   border: 1px solid var(--color-black);
+  width: 23rem;
   ul {
+    position: relative;
     margin: 0;
     padding: 0;
-    position: relative;
-    z-index: 3;
     li {
+      position: relative;
+      width: 7rem;
       text-decoration: none;
       list-style: none;
       padding-bottom: 0.5rem;
+      cursor: pointer;
     }
   }
-  img {
-    width: 17rem;
-    position: relative;
-    left: 1rem;
+  div {
+    img {
+      position: relative;
+      width: 17rem;
+      height: fit-content;
+      left: 0;
+    }
   }
 `;
 

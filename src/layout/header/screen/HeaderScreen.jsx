@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 const HeaderScreen = () => {
   const scrollPosition = useScrollPosition();
   const navigate = useNavigate();
-  // const [ishoverList, setHoverList] = useState([])
   return (
     <Container>
       {scrollPosition <= 36 && (
@@ -58,7 +57,6 @@ const HeaderScreen = () => {
           isHoverNeed={true}
         />
       </HeaderContainerSecond>
-      {/* <HoverBox /> */}
     </Container>
   );
 };
@@ -69,6 +67,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   width: 100vw;
+  z-index: 3;
 `;
 
 const HeaderContainerFirst = styled.div`

@@ -18,7 +18,7 @@ const Container = styled.div`
   flex-direction: column;
   width: 15rem;
   margin: 3.5rem 1rem 0 1rem;
-  z-index: -1;
+  cursor: pointer;
   img {
     width: 100%;
     ${fadeInFromBottomAnimation}

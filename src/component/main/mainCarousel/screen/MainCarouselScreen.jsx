@@ -11,7 +11,7 @@ const MainCarouselScreen = () => {
 };
 
 const Container = styled.div`
-  z-index: -1;
+  /* z-index: -1; */
   img {
     width: 78rem;
   }
