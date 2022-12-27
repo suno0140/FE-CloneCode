@@ -1,27 +1,27 @@
 import React from "react";
 import styled from "styled-components";
 import SocialLogin from "../sociallogin/SocialScreen";
-import LoginIdInput from "../logininput/idinput/IdinputScreen";
-import LoginPasswordInput from "../logininput/passwordinput/PasswordInputScreen";
-import LoginBtn from "../logininput/loginbtn/LoginBtn";
+import LoginIdInput from "../logininput/IdinputScreen";
+import { useNavigate } from "react-router-dom";
 
 const LoginPage = () => {
+  const navigate = useNavigate();
   return (
     <LoginContainerFirst>
       <Loginfieldset>
         <LoginTitle>Login</LoginTitle>
-        <LoginLabel>
-          <LoginIdInput />
-        </LoginLabel>
-        <LoginLabel>
-          <LoginPasswordInput />
-        </LoginLabel>
-        <LoginBtn />
+        <LoginIdInput></LoginIdInput>
         <SocialLogin />
         <LoginPtag>
           아직 회원이 아니신가요? <br />
           고객을 위한 다양한 혜택이 준비되어 있습니다.
-          <LoginAtag>회원가입</LoginAtag>
+          <LoginAtag
+            onClick={() => {
+              navigate(`/signup`);
+            }}
+          >
+            회원가입
+          </LoginAtag>
         </LoginPtag>
       </Loginfieldset>
     </LoginContainerFirst>
@@ -43,15 +43,6 @@ const LoginContainerFirst = styled.div`
   align-items: center;
   margin-top: 50px;
   width: 410px;
-`;
-
-const LoginLabel = styled.div`
-  display: flex;
-  align-items: center;
-  width: 410px;
-  margin: 0 0 9px;
-  border: 1px solid var(--color-light-gray);
-  color: var(--color-gray);
 `;
 
 const Loginfieldset = styled.div`

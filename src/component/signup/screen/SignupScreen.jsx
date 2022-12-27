@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
-import SignupInput from "../signupinputbox/SignupInputScreen";
+import SignUpInput from "../signupinputbox/SignupInputScreen";
 
 const SignupPage = () => {
   return (
     <SignupContainer>
       <SignupTitle>회원 가입</SignupTitle>
-      <SignupInput />
+      <SignUpInput />
     </SignupContainer>
   );
 };
