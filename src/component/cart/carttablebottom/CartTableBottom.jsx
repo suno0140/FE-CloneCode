@@ -2,7 +2,7 @@ import React from "react";
 
 const CartTableBottom = () => {
   return (
-    <div style={{ marginTop: "50px" }}>
+    <div style={{ margin: "50px 0 150px" }}>
       <table style={{ fontSize: "1.3rem" }}>
         <thead style={{ color: "var(--color-gray)" }}>
           <tr>
@@ -71,6 +71,7 @@ const CartTableBottom = () => {
           </tr>
         </tbody>
       </table>
+      <button>주문하기</button>
     </div>
   );
 };

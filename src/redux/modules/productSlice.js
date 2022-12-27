@@ -5,7 +5,6 @@ import { instanceApiV1 } from "../../core/api";
 const initialState = {
   product: {},
 };
-
 //thunk
 export const __getProduct = createAsyncThunk(
   "product/getProduct",
