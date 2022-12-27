@@ -47,15 +47,15 @@ const HeaderScreen = () => {
           linkName="MAGAZINE"
           fontsize={scrollPosition <= 36 ? "1rem" : "0.8rem"}
           margin={scrollPosition <= 36 ? "1rem 4rem" : "0.4rem 1.5rem"}
-          hoveringFeature="true"
           linkTo="/product/list?category=magazine&page=1"
+          isHoverNeed={true}
         />
         <LinkButton
           linkName="SHOP"
           fontsize={scrollPosition <= 36 ? "1rem" : "0.8rem"}
           margin={scrollPosition <= 36 ? "1rem 4rem" : "0.4rem 1.5rem"}
-          hoveringFeature="true"
           linkTo="/product/list?category=shop&page=1"
+          isHoverNeed={true}
         />
       </HeaderContainerSecond>
       {/* <HoverBox /> */}

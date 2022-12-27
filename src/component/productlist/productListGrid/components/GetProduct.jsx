@@ -17,7 +17,7 @@ const GetProduct = () => {
   return productList.map((product) => (
     <div key={product.name}>
       <ItemScreen
-        mediumThumbnailImgUrl={product.mediumThumbnailImgUrl}
+        thumbnailImgUrl={product.thumbnailImgUrl}
         name={product.name}
         price={product.price}
         caption={product.caption}

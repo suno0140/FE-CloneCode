@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import { useSearchParams } from "react-router-dom";
 import SubCategory from "./SubCategory";
 
 const ProductListHeader = () => {
+  const [searchParams] = useSearchParams();
+  const category = searchParams.get("category");
   return (
     <Container>
-      <MainCategory>FOOD</MainCategory>
+      <MainCategory>{category.toUpperCase()}</MainCategory>
       <div>
         <SubCategory />
         <SubCategory />

@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { fadeInFromBottomAnimation } from "../../../styles/animations";
 
-const ItemScreen = ({ mediumThumbnailImgUrl, name, price, caption }) => {
+const ItemScreen = ({ thumbnailImgUrl, name, price, caption }) => {
   return (
     <Container>
-      <img src={mediumThumbnailImgUrl} alt={name}></img>
+      <img src={thumbnailImgUrl} alt={name}></img>
       <div>{name}</div>
       <h6>{caption}</h6>
       <h5>{price}원</h5>
