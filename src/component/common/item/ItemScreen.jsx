@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 import { fadeInFromBottomAnimation } from "../../../styles/animations";
+import useScrollFadeIn from "../../../hooks/useScrollFadeIn";
 
 const ItemScreen = ({ thumbnailImgUrl, name, price, caption }) => {
+  const animationItem = useScrollFadeIn();
+
   return (
-    <Container>
+    <Container ref={animationItem.ref} style={animationItem.style}>
       <img src={thumbnailImgUrl} alt={name}></img>
       <div>{name}</div>
       <h6>{caption}</h6>
