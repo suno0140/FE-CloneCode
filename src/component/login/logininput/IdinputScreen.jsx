@@ -18,7 +18,7 @@ const LoginIdInput = () => {
         alert("아이디, 비밀번호를 잘못입력하셨습니다.");
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
