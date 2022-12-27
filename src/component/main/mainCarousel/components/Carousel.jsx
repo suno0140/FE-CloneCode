@@ -71,15 +71,17 @@ const Container = styled.div`
   width: 100%;
   z-index: 1;
   top: 15rem;
-  img {
-    &:first-child {
-      margin-left: 1rem;
+  div {
+    img {
+      width: 2.5rem;
+      cursor: pointer;
+      &:first-child {
+        margin-left: 1rem;
+      }
+      &:last-child {
+        margin-right: 1rem;
+      }
     }
-    &:last-child {
-      margin-right: 1rem;
-    }
-    width: 2.5rem;
-    cursor: pointer;
   }
 `;
 
