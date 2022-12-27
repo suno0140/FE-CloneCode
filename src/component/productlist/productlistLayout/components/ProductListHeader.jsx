@@ -1,20 +1,34 @@
 import React from "react";
 import styled from "styled-components";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 import SubCategory from "./SubCategory";
 
 const ProductListHeader = () => {
   const [searchParams] = useSearchParams();
   const category = searchParams.get("category");
+  const subcategory = searchParams.get("subcategory");
+  const navigate = useNavigate();
+  const subCategoryList = useSelector(
+    (state) => state.productList.subCategoryList
+  );
+
   return (
     <Container>
-      <MainCategory>{category.toUpperCase()}</MainCategory>
+      <MainCategory>
+        {category?.toUpperCase()}
+        {subcategory?.toUpperCase()}
+      </MainCategory>
       <div>
-        <SubCategory />
-        <SubCategory />
-        <SubCategory />
-        <SubCategory />
-        <SubCategory />
+        {subCategoryList.map((subcategory) => (
+          <SubCategory
+            key={subcategory}
+            subcategory={subcategory}
+            onClick={() => {
+              navigate(`/product/list?subcategory=${subcategory}&page=1`);
+            }}
+          />
+        ))}
       </div>
     </Container>
   );

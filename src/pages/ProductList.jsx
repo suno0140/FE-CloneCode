@@ -15,7 +15,7 @@ const ProductList = () => {
 };
 
 const Container = styled.div`
-  padding: 4rem;
+  padding: 5rem 4rem;
   display: flex;
   flex-direction: column;
   align-items: center;

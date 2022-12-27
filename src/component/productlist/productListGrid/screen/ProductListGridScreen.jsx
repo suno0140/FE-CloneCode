@@ -11,7 +11,8 @@ const ProductListGridScreen = () => {
 };
 
 const Container = styled.div`
-  margin-top: 3rem;
+  width: 100%;
+  margin-top: 1rem;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 `;

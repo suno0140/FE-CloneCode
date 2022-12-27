@@ -1,10 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { fadeInFromBottomAnimation } from "../../../styles/animations";
+import useScrollFadeIn from "../../../hooks/useScrollFadeIn";
+import { useNavigate } from "react-router-dom";
 
-const ItemScreen = ({ thumbnailImgUrl, name, price, caption }) => {
+const ItemScreen = ({ thumbnailImgUrl, name, price, caption, linkTo }) => {
+  const animationItem = useScrollFadeIn();
+  const navigate = useNavigate();
   return (
-    <Container>
+    <Container
+      ref={animationItem.ref}
+      style={animationItem.style}
+      onClick={() => {
+        navigate(linkTo);
+      }}
+    >
       <img src={thumbnailImgUrl} alt={name}></img>
       <div>{name}</div>
       <h6>{caption}</h6>
