@@ -1,4 +1,5 @@
 import React from "react";
+import styled from "styled-components";
 
 const CartTableBottom = () => {
   return (
@@ -71,9 +72,31 @@ const CartTableBottom = () => {
           </tr>
         </tbody>
       </table>
-      <button>주문하기</button>
+      <Orderdiv>
+        <OrderButton>주문하기</OrderButton>
+      </Orderdiv>
     </div>
   );
 };
 
 export default CartTableBottom;
+const Orderdiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+`;
+
+const OrderButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  background-color: var(--color-black);
+  font-size: 1rem;
+  color: white;
+  font-weight: 700;
+  padding: 0.7rem;
+  letter-spacing: 3px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+`;
