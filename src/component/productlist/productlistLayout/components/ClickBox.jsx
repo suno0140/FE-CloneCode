@@ -1,8 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 
-const ClickBox = ({ text, borderBottom }) => {
-  return <Box borderBottom={borderBottom}>{text}</Box>;
+const ClickBox = ({ text, borderBottom, onClick }) => {
+  return (
+    <Box borderBottom={borderBottom} onClick={onClick}>
+      {text}
+    </Box>
+  );
 };
 
 const Box = styled.div`

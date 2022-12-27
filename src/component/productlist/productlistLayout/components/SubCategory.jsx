@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 
-const SubCategory = () => {
-  return <Box>ART</Box>;
+const SubCategory = ({ subcategory, onClick }) => {
+  return <Box onClick={onClick}>{subcategory}</Box>;
 };
 
 const Box = styled.button`
