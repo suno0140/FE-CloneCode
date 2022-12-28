@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const ProductCoreInfoTextBox = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const { product } = useSelector((state) => state.product);
   const productId = product.productId;
   const [count, setCount] = useState(1);
@@ -31,9 +32,12 @@ const ProductCoreInfoTextBox = () => {
 
   const onClickCart = async () => {
     try {
-      const cart = { productId, count };
+      const quantity = count;
+      const cart = { productId, quantity };
+      console.log(cart);
       const data = await baseURLApiV1.post("/cart", cart);
       if (data.data.statusCode === 201) {
+        navigate("/cart");
         return data;
       } else {
         alert(data.data.msg);
@@ -60,7 +64,7 @@ const ProductCoreInfoTextBox = () => {
         <h2>{product.price}원</h2>
       </ProductSecondTitle>
       <CountLineContainer>
-        <h5>{product.name}</h5>
+        <CarH5>{product.name}</CarH5>
         <CountContainer>
           <CarPtag> {count} </CarPtag>
           <div>
@@ -232,6 +236,10 @@ const CarPtag = styled.div`
   width: 15px;
   height: 20px;
   border: 1px solid var(--color-gray);
+`;
+
+const CarH5 = styled.h5`
+  width: 200px;
 `;
 
 export default ProductCoreInfoTextBox;
