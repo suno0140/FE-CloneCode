@@ -7,7 +7,6 @@ import { __postSignUp } from "../../../redux/modules/signUpSlice";
 const SignupBtn = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const result = useSelector(({ signUpPost }) => signUpPost.result);
   const { form } = useSelector(({ signUpPost }) => ({
     form: signUpPost,
   }));
@@ -21,6 +20,18 @@ const SignupBtn = () => {
       form.email === ""
     ) {
       alert("빈값을 입력해주세요!");
+    } else if (
+      !/^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{10,16}$/.test(
+        form.password
+      )
+    ) {
+      alert("비밀번호 형식을 확인해주세요.");
+    } else if (
+      !/([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/.test(
+        form.email
+      )
+    ) {
+      alert("유효한 이메일을 입력해주세요.");
     } else {
       const payloadForm = {
         loginId: form.loginId,
@@ -29,9 +40,8 @@ const SignupBtn = () => {
         email: form.email,
       };
       dispatch(__postSignUp(payloadForm));
-      if (result === "success") {
-        navigate("/login");
-      }
+
+      navigate("/login");
     }
   };
 
