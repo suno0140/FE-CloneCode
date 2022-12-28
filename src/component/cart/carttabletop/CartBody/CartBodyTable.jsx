@@ -10,9 +10,17 @@ const CartBodyTable = () => {
   const [count, setCount] = useState(1);
   const dispatch = useDispatch();
 
-  const onChangeCheck = () => {};
-  const onClickDelete = () => {
-    dispatch(__deleteCart());
+  const onChangeCheck = (checked, cartId) => {
+    if (checked) {
+      setCartItemId([...cartItemId, cartId]);
+    } else if (!checked) {
+      setCartItemId(cartItemId.filter((e) => e !== cartId));
+    }
+    console.log(cartItemId);
+  };
+
+  const onClickDelete = (cartItemId) => {
+    dispatch(__deleteCart(cartItemId));
   };
 
   const onClickUp = () => {
@@ -41,9 +49,12 @@ const CartBodyTable = () => {
                 value={cartList.cartItemId}
                 type="checkbox"
                 style={{ zoom: 1.4 }}
-                onChange={() => {
-                  onChangeCheck();
+                onChange={(e) => {
+                  onChangeCheck(e.target.checked, e.target.value);
                 }}
+                checked={
+                  cartItemId.includes(cartList.cartItemId) ? true : false
+                }
               ></input>
             </th>
             <th style={{ padding: "15px", width: "100px" }}>
