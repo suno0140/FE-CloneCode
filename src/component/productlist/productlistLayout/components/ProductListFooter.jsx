@@ -95,4 +95,4 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-export default ProductListFooter;
+export default React.memo(ProductListFooter);

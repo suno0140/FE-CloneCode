@@ -11,9 +11,8 @@ const HeaderFirst = () => {
   const dispatch = useDispatch();
   const isLogin = useSelector((state) => state.header.login);
 
-  // check 필요
   const logOutHandler = () => {
-    localStorage.removeItem("authorization");
+    localStorage.removeItem("id");
   };
 
   useEffect(() => {
@@ -82,4 +81,4 @@ const HeaderContainerFirst = styled.div`
   }
 `;
 
-export default HeaderFirst;
+export default React.memo(HeaderFirst);

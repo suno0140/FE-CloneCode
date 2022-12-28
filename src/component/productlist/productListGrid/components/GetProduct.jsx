@@ -37,4 +37,4 @@ const GetProduct = () => {
   );
 };
 
-export default GetProduct;
+export default React.memo(GetProduct);
