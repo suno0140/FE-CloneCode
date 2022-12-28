@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import useGithubLogin from "./hooks/useGithubLogin";
+// import useGithubLogin from "./hooks/useGithubLogin";
 import { githubId } from "../../../core";
 import { kakaoId } from "../../../core";
 
@@ -9,7 +9,7 @@ import SocialLoginButton from "./components/SocialLoginButton";
 
 const SocialLogin = () => {
   // 조건문 형태 확인
-  useGithubLogin();
+  // useGithubLogin();
   // useKakaoLogin();
   return (
     <LoginUl>
