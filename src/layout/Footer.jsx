@@ -31,4 +31,4 @@ const Container = styled.div`
   }
 `;
 
-export default Footer;
+export default React.memo(Footer);

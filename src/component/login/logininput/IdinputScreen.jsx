@@ -34,6 +34,7 @@ const LoginIdInput = () => {
     }).then((res) => {
       if (res === undefined) {
         navigate(`/login`);
+        alert("아이디, 비밀번호를 확인해주세요.");
       } else {
         localStorage.setItem("id", res.headers.authorization);
         navigate(`/`);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import SocialLogin from "../sociallogin/SocialScreen";
 import SignupBtn from "./SignupBtnScreen";
@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeField } from "../../../redux/modules/signUpSlice";
 
 const SignUpInput = () => {
+  const [idMessage, setIdMessage] = useState("");
   const dispatch = useDispatch();
   const { form } = useSelector(({ signUpPost }) => ({
     form: signUpPost,
@@ -19,6 +20,11 @@ const SignUpInput = () => {
         value,
       })
     );
+    if (/^(?=.*\d)(?=.*[a-z0-9])[0-9a-z]{4,16}$/.test(form.loginId)) {
+      setIdMessage(`사용가능한 아이디입니다.`);
+    } else if (!/^(?=.*\d)(?=.*[a-z])[0-9a-z]{4,16}$/.test(form.loginId)) {
+      setIdMessage("");
+    }
   };
 
   const img =
@@ -29,20 +35,19 @@ const SignUpInput = () => {
       <SignupDiv>
         <SignupDivSecond>
           아이디
-          <img src={img}></img>
+          <img src={img} alt="필수요소"></img>
         </SignupDivSecond>
         <SignupIdInput
           name="loginId"
           onChange={onChangeInputHandler}
         ></SignupIdInput>
-        {!/^(?=.*\d)(?=.*[a-z])[0-9a-z]{4,16}$/.test(form.loginId) &&
-          form.loginId && <SignupPtag></SignupPtag>}
-        <SignupPtag>(영문소문자/숫자,4~16자)</SignupPtag>
+        <SignupPtag>{idMessage}</SignupPtag>
+        <SignupPtag>(영문소문자+숫자,4~16자)</SignupPtag>
       </SignupDiv>
       <SignupDiv>
         <SignupDivSecond>
           비밀번호
-          <img src={img}></img>
+          <img src={img} alt="필수요소"></img>
         </SignupDivSecond>
 
         <SignupDivThird>
@@ -52,14 +57,14 @@ const SignUpInput = () => {
             onChange={onChangeInputHandler}
           ></SignupInput>
           <SignupPtagSecond>
-            (영문 대소문자/숫자/특수문자 중 3가지 이상 조합, 10자 ~ 16자)
+            (영문 대소문자/숫자/특수문자 모두 포함, 10자 ~ 16자)
           </SignupPtagSecond>
         </SignupDivThird>
       </SignupDiv>
       <SignupDiv>
         <SignupDivSecond>
           비밀번호 확인
-          <img src={img}></img>
+          <img src={img} alt="필수요소"></img>
         </SignupDivSecond>
         <SignupInput
           name="passwordcheck"
@@ -73,14 +78,14 @@ const SignUpInput = () => {
       <SignupDiv>
         <SignupDivSecond>
           이름
-          <img src={img}></img>
+          <img src={img} alt="필수요소"></img>
         </SignupDivSecond>
         <SignupInput name="name" onChange={onChangeInputHandler}></SignupInput>
       </SignupDiv>
       <SignupDiv>
         <SignupDivSecond>
           이메일
-          <img src={img}></img>
+          <img src={img} alt="필수요소"></img>
         </SignupDivSecond>
         <SignupInput
           name="email"
@@ -100,14 +105,14 @@ const SignupBox = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-  width: 900px;
+  width: 1000px;
 `;
 
 const SignupDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  width: 800px;
+  width: 1000px;
   font-size: 1rem;
   margin-top: 30px;
   padding-bottom: 30px;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const FlexContainer = ({ children, flex }) => {
+const FlexContainer = ({ children }) => {
   return <Container>{children}</Container>;
 };
 

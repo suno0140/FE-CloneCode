@@ -105,4 +105,4 @@ const IconContainer = styled.div`
   }
 `;
 
-export default HeaderSecond;
+export default React.memo(HeaderSecond);

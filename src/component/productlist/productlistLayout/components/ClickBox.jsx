@@ -31,4 +31,4 @@ const Box = styled.div`
     `}
 `;
 
-export default ClickBox;
+export default React.memo(ClickBox);

@@ -31,4 +31,4 @@ const StLayout = styled.div`
   transition: all ease-in-out 0.2s;
 `;
 
-export default Layout;
+export default React.memo(Layout);
