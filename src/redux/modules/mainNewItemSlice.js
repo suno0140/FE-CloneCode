@@ -4,6 +4,7 @@ import { instanceApiV1 } from "../../core/api";
 // 초기값 설정
 const initialState = {
   newItems: [],
+  error: null,
 };
 
 //thunk
@@ -28,7 +29,10 @@ const mainNewItemSlice = createSlice({
     builder.addCase(__getNewItems.fulfilled, (state, action) => {
       state.newItems = action.payload.data;
     });
-    builder.addCase(__getNewItems.rejected, (state, action) => {});
+    builder.addCase(__getNewItems.rejected, (state, action) => {
+      console.log(action.payload);
+      alert(action.payload);
+    });
   },
 });
 

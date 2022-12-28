@@ -1,9 +1,9 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-const ClickBox = ({ text, borderBottom, onClick }) => {
+const ClickBox = ({ text, borderBottom, onClick, isPageHere }) => {
   return (
-    <Box borderBottom={borderBottom} onClick={onClick}>
+    <Box borderBottom={borderBottom} onClick={onClick} isPageHere={isPageHere}>
       {text}
     </Box>
   );
@@ -23,6 +23,12 @@ const Box = styled.div`
       borderBottom || "2px solid var(--color-black)"};
     font-weight: 800;
   }
+  ${({ isPageHere }) =>
+    isPageHere &&
+    css`
+      border-bottom: "2px solid var(--color-black)";
+      font-weight: 800;
+    `}
 `;
 
 export default React.memo(ClickBox);
