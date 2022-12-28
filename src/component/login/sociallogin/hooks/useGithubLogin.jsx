@@ -13,7 +13,7 @@ const useGithubLogin = () => {
       const gitHubCallBack = async () => {
         try {
           const res = await axios.post(callBackURL, { code: gitCode });
-          localStorage.setItem("id", res.headers.authorization);
+          localStorage.setItem("id", res.headers.Authorization);
           alert(res.data.msg);
         } catch (error) {
           console.log(error);

@@ -17,7 +17,7 @@ const useKakaoLogin = () => {
           const res = await axios.post(callBackURL, {
             code: kakaoCode,
           });
-          localStorage.setItem("id", res.headers.authorization);
+          localStorage.setItem("id", res.headers.Authorization);
           alert(res.data.msg);
         } catch (error) {
           console.log(error);

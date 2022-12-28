@@ -20,8 +20,8 @@ export const baseURLApiV1 = axios.create({
 baseURLApiV1.interceptors.request.use((config) => {
   if (config.headers === undefined) return;
 
-  const token = localStorage.getItem("id");
-  config.headers["id"] = `${token}`;
+  const token = localStorage.getItem("Authorization");
+  config.headers["Authorization"] = `${token}`;
 
   return config;
 });
