@@ -19,10 +19,10 @@ export const __getCart = createAsyncThunk(
   }
 );
 export const __deleteCart = createAsyncThunk(
-  "cart/getCart",
+  "cart/deleteCart",
   async (payload, thunkAPI) => {
     try {
-      const { data } = await baseURLApiV1.delete(`/cart`);
+      const { data } = await baseURLApiV1.delete(`/cart`, payload);
       console.log(data);
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
@@ -38,6 +38,9 @@ const cartSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(__getCart.fulfilled, (state, action) => {
+      state.cart = action.payload.data;
+    });
+    builder.addCase(__deleteCart.fulfilled, (state, action) => {
       state.cart = action.payload.data;
     });
   },

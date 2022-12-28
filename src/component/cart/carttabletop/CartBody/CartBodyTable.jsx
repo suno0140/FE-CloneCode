@@ -12,11 +12,10 @@ const CartBodyTable = () => {
 
   const onChangeCheck = (checked, cartId) => {
     if (checked) {
-      setCartItemId([...cartItemId, cartId]);
+      setCartItemId([...cartItemId, +cartId]);
     } else if (!checked) {
-      setCartItemId(cartItemId.filter((e) => e !== cartId));
+      setCartItemId(cartItemId.filter((e) => e !== +cartId));
     }
-    console.log(cartItemId);
   };
 
   const onClickDelete = (cartItemId) => {
@@ -37,6 +36,7 @@ const CartBodyTable = () => {
       alert("최소주문 수량은 1개 입니다.");
     }
   };
+  console.log(cartItemId);
 
   return (
     <div style={{ borderBottom: "1px solid #e1e1e1" }}>
