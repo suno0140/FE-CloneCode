@@ -19,7 +19,7 @@ const Layout = () => {
 };
 
 const Container = styled.div`
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -27,8 +27,14 @@ const Container = styled.div`
 
 const StLayout = styled.div`
   flex: 1;
+  min-height: 80vh;
+  width: 100%;
+  min-width: 800px;
+  max-width: 1200px;
+  display: flex;
+  justify-content: center;
   margin-top: ${({ marginTop }) => marginTop || "4.5rem"};
   transition: all ease-in-out 0.2s;
 `;
 
-export default React.memo(Layout);
+export default Layout;
