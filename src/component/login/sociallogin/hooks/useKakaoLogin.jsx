@@ -3,16 +3,20 @@ import { serverUrlApiV1 } from "../../../../core";
 import { useSearchParams } from "react-router-dom";
 import axios from "axios";
 
-const useGithubLogin = () => {
+const useKakaoLogin = () => {
   const [searchParams] = useSearchParams();
-  const gitCode = searchParams.get("code");
-  const callBackURL = `${serverUrlApiV1}/members/login/github`;
+  // 받아오는 url 형태 확인
+  const kakaoCode = searchParams.get("code");
+  const callBackURL = `${serverUrlApiV1}/members/login/kakao`;
 
   useEffect(() => {
-    if (gitCode) {
+    if (kakaoCode) {
       const gitHubCallBack = async () => {
         try {
-          const res = await axios.post(callBackURL, { code: gitCode });
+          // 다이렉트 url에서 code를 받은 후 어떤 형태로 보내드려야하는지
+          const res = await axios.post(callBackURL, {
+            code: kakaoCode,
+          });
           localStorage.setItem("id", res.headers.authorization);
           alert(res.data.msg);
         } catch (error) {
@@ -21,9 +25,9 @@ const useGithubLogin = () => {
       };
       gitHubCallBack();
     }
-  }, [callBackURL, gitCode]);
+  }, [callBackURL, kakaoCode]);
 
   return;
 };
 
-export default useGithubLogin;
+export default useKakaoLogin;

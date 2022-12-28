@@ -1,5 +1,5 @@
 import axios from "axios";
-import { serverUrl, serverUrlApiV1 } from ".";
+import { serverUrlApiV1 } from ".";
 
 // 헤더 없이 사용하는 경우( API 추가 )
 export const instanceApiV1 = axios.create({
@@ -21,7 +21,7 @@ baseURLApiV1.interceptors.request.use((config) => {
   if (config.headers === undefined) return;
 
   const token = localStorage.getItem("id");
-  config.headers["Authorization"] = `${token}`;
+  config.headers["id"] = `${token}`;
 
   return config;
 });

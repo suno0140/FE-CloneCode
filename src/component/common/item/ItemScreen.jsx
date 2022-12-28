@@ -31,7 +31,7 @@ const Container = styled.div`
   cursor: pointer;
   img {
     width: 100%;
-    ${fadeInFromBottomAnimation}
+    /* ${fadeInFromBottomAnimation} */
   }
   div {
     text-align: center;

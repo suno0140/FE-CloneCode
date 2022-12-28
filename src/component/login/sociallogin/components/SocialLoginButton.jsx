@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const SocialLoginButton = ({ title, linkTo, color, background, border }) => {
   return (
-    <a href={{ linkTo }}>
+    <a href={linkTo}>
       <Button color={color} background={background} border={border}>
         {title}
       </Button>
