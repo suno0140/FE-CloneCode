@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import SubCategory from "./SubCategory";
+import { fadeInFromLeftAnimation } from "../../../../styles/animations";
 
 const ProductListHeader = () => {
   const [searchParams] = useSearchParams();
@@ -45,6 +46,7 @@ const Container = styled.div`
 const MainCategory = styled.h2`
   font-weight: 500;
   margin: 0;
+  ${fadeInFromLeftAnimation}
 `;
 
 export default React.memo(ProductListHeader);
