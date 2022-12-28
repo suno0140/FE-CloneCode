@@ -26,7 +26,7 @@ const ItemScreen = ({ thumbnailImgUrl, name, price, caption, linkTo }) => {
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 15rem;
+  width: 14rem;
   margin: 3.5rem 1rem 0 1rem;
   cursor: pointer;
   img {
