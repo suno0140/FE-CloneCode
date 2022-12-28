@@ -21,7 +21,7 @@ baseURLApiV1.interceptors.request.use((config) => {
   if (config.headers === undefined) return;
 
   const token = localStorage.getItem("id");
-  config.headers["Authorization"] = `${token}`;
+  config.headers["id"] = `${token}`;
 
   return config;
 });

@@ -57,4 +57,4 @@ const Container = styled.div`
   }
 `;
 
-export default ItemScreen;
+export default React.memo(ItemScreen);

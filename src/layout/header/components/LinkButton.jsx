@@ -116,4 +116,4 @@ const Container = styled.div`
   }
 `;
 
-export default LinkButton;
+export default React.memo(LinkButton);
