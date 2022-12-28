@@ -12,12 +12,12 @@ const HeaderFirst = () => {
   const isLogin = useSelector((state) => state.header.login);
 
   const logOutHandler = () => {
-    localStorage.removeItem("id");
+    localStorage.removeItem("Authorization");
   };
 
   useEffect(() => {
     dispatch(__getHeader());
-  }, []);
+  }, [dispatch]);
   return (
     <HeaderContainerFirst>
       <div>
@@ -33,12 +33,15 @@ const HeaderFirst = () => {
       <div>
         {isLogin ? (
           // 체크 필요
-          <LinkButton
-            linkName="LOGOUT"
-            onClick={() => {
-              logOutHandler();
-            }}
-          />
+          <>
+            <LinkButton linkName="ORDER" linkTo="orderlist" />
+            <LinkButton
+              linkName="LOGOUT"
+              onClick={() => {
+                logOutHandler();
+              }}
+            />
+          </>
         ) : (
           <>
             <LinkButton
@@ -81,4 +84,4 @@ const HeaderContainerFirst = styled.div`
   }
 `;
 
-export default React.memo(HeaderFirst);
+export default HeaderFirst;
