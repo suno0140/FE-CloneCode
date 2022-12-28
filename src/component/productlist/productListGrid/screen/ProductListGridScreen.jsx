@@ -17,4 +17,4 @@ const Container = styled.div`
   grid-template-columns: repeat(4, 1fr);
 `;
 
-export default ProductListGridScreen;
+export default React.memo(ProductListGridScreen);

@@ -11,14 +11,13 @@ const HeaderFirst = () => {
   const dispatch = useDispatch();
   const isLogin = useSelector((state) => state.header.login);
 
-  // check 필요
   const logOutHandler = () => {
-    localStorage.removeItem("authorization");
+    localStorage.removeItem("Authorization");
   };
 
   useEffect(() => {
     dispatch(__getHeader());
-  }, []);
+  }, [dispatch]);
   return (
     <HeaderContainerFirst>
       <div>
@@ -34,12 +33,15 @@ const HeaderFirst = () => {
       <div>
         {isLogin ? (
           // 체크 필요
-          <LinkButton
-            linkName="LOGOUT"
-            onClick={() => {
-              logOutHandler();
-            }}
-          />
+          <>
+            <LinkButton linkName="ORDER" linkTo="orderlist" />
+            <LinkButton
+              linkName="LOGOUT"
+              onClick={() => {
+                logOutHandler();
+              }}
+            />
+          </>
         ) : (
           <>
             <LinkButton

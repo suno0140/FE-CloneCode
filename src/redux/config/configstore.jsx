@@ -6,6 +6,8 @@ import signUpPost from "../modules/signUpSlice";
 import product from "../modules/productSlice";
 import header from "../modules/headerSlice";
 import cart from "../modules/cartSlice";
+import orderList from "../modules/orderListSlice";
+
 
 const store = configureStore({
   reducer: {
@@ -15,6 +17,7 @@ const store = configureStore({
     product,
     header,
     cart,
+    orderList,
   },
 });
 

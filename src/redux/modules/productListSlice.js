@@ -51,17 +51,20 @@ const productListSlice = createSlice({
       state.pageList = action.payload.pageList;
       state.totalPage = action.payload.totalPage;
     });
-    builder.addCase(__getProductList.rejected, (state, action) => {});
+    builder.addCase(__getProductList.rejected, (state, action) => {
+      console.log(action.payload);
+      alert(action.payload);
+    });
     builder.addCase(__getSubCategoryProductList.fulfilled, (state, action) => {
       state.productList = action.payload.data;
       state.subCategoryList = action.payload.subCategoryList;
       state.pageList = action.payload.pageList;
       state.totalPage = action.payload.totalPage;
     });
-    builder.addCase(
-      __getSubCategoryProductList.rejected,
-      (state, action) => {}
-    );
+    builder.addCase(__getSubCategoryProductList.rejected, (state, action) => {
+      console.log(action.payload);
+      alert(action.payload);
+    });
   },
 });
 

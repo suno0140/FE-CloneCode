@@ -41,15 +41,18 @@ const ProductListFooter = () => {
               : navigate(`/product/list?subcategory=${subcategory}&page=1`));
         }}
       />
-      {pageList.map((page) => (
+      {pageList.map((pageId) => (
         <ClickBox
-          key={page}
-          text={page}
+          key={pageId}
+          text={pageId}
+          isPageHere={pageId === page}
           onClick={() => {
             category &&
-              navigate(`/product/list?category=${category}&page=${page}`);
+              navigate(`/product/list?category=${category}&page=${pageId}`);
             subcategory &&
-              navigate(`/product/list?subcategory=${subcategory}&page=${page}`);
+              navigate(
+                `/product/list?subcategory=${subcategory}&page=${pageId}`
+              );
           }}
         />
       ))}
@@ -95,4 +98,4 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-export default ProductListFooter;
+export default React.memo(ProductListFooter);

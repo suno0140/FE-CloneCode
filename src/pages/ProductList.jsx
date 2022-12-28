@@ -21,4 +21,4 @@ const Container = styled.div`
   align-items: center;
 `;
 
-export default ProductList;
+export default React.memo(ProductList);

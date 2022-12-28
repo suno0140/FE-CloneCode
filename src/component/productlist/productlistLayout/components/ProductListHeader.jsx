@@ -47,4 +47,4 @@ const MainCategory = styled.h2`
   margin: 0;
 `;
 
-export default ProductListHeader;
+export default React.memo(ProductListHeader);

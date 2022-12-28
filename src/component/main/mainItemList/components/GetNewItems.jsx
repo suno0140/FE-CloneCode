@@ -23,4 +23,4 @@ const GetNewItems = () => {
   ));
 };
 
-export default GetNewItems;
+export default React.memo(GetNewItems);

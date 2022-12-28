@@ -20,4 +20,4 @@ const Box = styled.button`
     color: white;
   }
 `;
-export default SubCategory;
+export default React.memo(SubCategory);

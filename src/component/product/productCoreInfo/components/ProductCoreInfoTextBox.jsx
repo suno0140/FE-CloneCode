@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { baseURLApiV1 } from "../../../../core/api";
+import { __postOrderList } from "../../../../redux/modules/orderListSlice";
 import { useNavigate } from "react-router-dom";
 
 const ProductCoreInfoTextBox = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const { product } = useSelector((state) => state.product);
   const productId = product.productId;
   const [count, setCount] = useState(1);
+
+  console.log(product);
 
   const onClickUp = () => {
     if (count < 10) {
@@ -42,6 +47,15 @@ const ProductCoreInfoTextBox = () => {
     }
   };
 
+  const orderHandler = () => {
+    dispatch(
+      __postOrderList({ productId: product?.productId, quantity: count })
+    ).then((res) => {
+      alert(res.payload.msg);
+      navigate("/orderlist");
+    });
+  };
+
   return (
     <Container>
       <ProductTitle>{product.name}</ProductTitle>
@@ -73,13 +87,25 @@ const ProductCoreInfoTextBox = () => {
         <h2>{product.price * count}원</h2>
         <p>({count}개)</p>
       </TotalContainer>
-      <CartButton
-        onClick={() => {
-          onClickCart();
-        }}
-      >
-        장바구니
-      </CartButton>
+      <CartButtonContainer>
+        <CartButton
+          onClick={() => {
+            onClickCart();
+          }}
+          backgroundColor="white"
+          color="var(--color-black)"
+          border="1px solid #C5C5C5"
+        >
+          장바구니
+        </CartButton>
+        <CartButton
+          onClick={() => {
+            orderHandler();
+          }}
+        >
+          구매하기
+        </CartButton>
+      </CartButtonContainer>
     </Container>
   );
 };
@@ -113,14 +139,25 @@ const Container = styled.div`
     }
   }
 `;
+
+const CartButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 const CartButton = styled.button`
   width: 100%;
-  background-color: var(--color-black);
+  margin-left: 0.5rem;
+  background-color: ${({ backgroundColor }) =>
+    backgroundColor || "var(--color-black)"};
+  /* background-color: var(--color-black); */
   font-size: 1rem;
-  color: white;
+  color: ${({ color }) => color || "white"};
+  /* color: white; */
   font-weight: 700;
   padding: 0.7rem;
   letter-spacing: 3px;
+  border: ${({ border }) => border || "none"};
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 const ProductTitle = styled.div`
