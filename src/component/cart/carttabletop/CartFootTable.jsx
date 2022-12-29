@@ -1,6 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import numeral from "numeral";
 
 const CartFootTable = () => {
+  const { cart } = useSelector((state) => state.cart);
+  const sumall = cart
+    .map((item) => item.summation)
+    .reduce((prev, curr) => prev + curr, 0);
+
   return (
     <div style={{ borderBottom: "1px solid var(--color-light-gray)" }}>
       <tfoot style={{ fontSize: "1.2rem" }}>
@@ -8,9 +15,15 @@ const CartFootTable = () => {
           <td colspan="10" style={{ padding: "20px 0 20px 0" }}>
             <span style={{ justifyContent: "flex-start" }}>[기본배송]</span>
             <span style={{ marginLeft: "600px" }}>
-              상품구매금액 <span style={{ fontWeight: "bold" }}>290,000</span> +
-              배송비 0 (무료) = 합계 :
-              <span style={{ fontWeight: "bold" }}> 290,000원</span>
+              상품구매금액{" "}
+              <span style={{ fontWeight: "bold" }}>
+                {" "}
+                {numeral(sumall).format("0,0")}
+              </span>{" "}
+              + 배송비 0 (무료) = 합계 :
+              <span style={{ fontWeight: "bold" }}>
+                {numeral(sumall).format("0,0")}
+              </span>
             </span>
           </td>
         </tr>

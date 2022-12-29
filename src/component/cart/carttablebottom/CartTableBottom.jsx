@@ -1,14 +1,21 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+
 import { useSelector, useDispatch } from "react-redux";
 import { baseURLApiV1 } from "../../../core/api";
 import { __postOrderList } from "../../../redux/modules/orderListSlice";
+import numeral from "numeral";
 
 const CartTableBottom = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.product);
+  const CartTableBottom = () => {
+  const { cart } = useSelector((state) => state.cart);
+  const sumall = cart
+    .map((item) => item.summation)
+    .reduce((prev, curr) => prev + curr, 0);
   //   const orderHandler = () => {
   //     dispatch(
   //       __postOrderList({ productId: product?.productId, quantity: count })
@@ -17,7 +24,6 @@ const CartTableBottom = () => {
   //       navigate("/orderlist");
   //     });
   // };
-
   return (
     <div style={{ margin: "50px 0 150px" }}>
       <table style={{ fontSize: "1.3rem" }}>
@@ -65,7 +71,7 @@ const CartTableBottom = () => {
                 border: "1px solid var(--color-light-gray)",
               }}
             >
-              290,000원
+              {numeral(sumall).format("0,0")}
             </th>
             <th
               style={{
@@ -83,7 +89,7 @@ const CartTableBottom = () => {
                 borderLeft: "none",
               }}
             >
-              = 290,000원
+              = {numeral(sumall).format("0,0")}
             </th>
           </tr>
         </tbody>

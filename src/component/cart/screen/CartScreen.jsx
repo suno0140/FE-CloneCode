@@ -13,17 +13,18 @@ const CartPage = () => {
         <CartMainDiv>CART</CartMainDiv>
       </CartContainer>
       <CartDivbox>
-        <CartDivSecond>국내배송상품(1)</CartDivSecond>
+        <CartDivSecond>국내배송상품</CartDivSecond>
       </CartDivbox>
-      <CartDivThird>일반상품(1)</CartDivThird>
+      <CartDivThird>일반상품</CartDivThird>
       <div>
         <table>
           <CartHeadTable />
+          
           <CartBodyTable />
-          <CartFootTable />
+
         </table>
       </div>
-      <CartMiddleScreen />
+      {/* <CartMiddleScreen /> */}
       <CartTableBottom />
     </div>
   );

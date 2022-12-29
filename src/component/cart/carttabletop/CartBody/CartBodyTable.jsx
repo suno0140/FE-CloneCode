@@ -2,125 +2,141 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import numeral from "numeral";
-import { __deleteCart } from "../../../../redux/modules/cartSlice";
-
+import {
+  __deleteCart,
+  __upCart,
+  __downCart,
+} from "../../../../redux/modules/cartSlice";
+import CartFootTable from "../CartFootTable";
 const CartBodyTable = () => {
   const { cart } = useSelector((state) => state.cart);
   const [cartItemId, setCartItemId] = useState([]);
-  const [count, setCount] = useState(1);
   const dispatch = useDispatch();
 
   const onChangeCheck = (checked, cartId) => {
     if (checked) {
-      setCartItemId([...cartItemId, cartId]);
+      setCartItemId([...cartItemId, +cartId]);
     } else if (!checked) {
-      setCartItemId(cartItemId.filter((e) => e !== cartId));
-    }
-    console.log(cartItemId);
-  };
-
-  const onClickDelete = (cartItemId) => {
-    dispatch(__deleteCart(cartItemId));
-  };
-
-  const onClickUp = () => {
-    if (count < 10) {
-      setCount((count) => count + 1);
-    } else {
-      alert("최대주문 수량입니다.");
+      setCartItemId(cartItemId.filter((e) => e !== +cartId));
     }
   };
-  const onClickDown = () => {
-    if (count > 1) {
-      setCount((count) => count - 1);
+
+  const onClickDelete = (cartList) => {
+    dispatch(__deleteCart(cartList));
+  };
+
+  const onClickUp = (cart) => {
+    if (cart.quantity === 10) {
+      alert("최대주문 수량은 10개입니다.");
     } else {
-      alert("최소주문 수량은 1개 입니다.");
+      dispatch(__upCart(cart));
+    }
+  };
+  const onClickDown = (cart) => {
+    if (cart.quantity === 1) {
+      alert("최소주문 수량은 1개입니다.");
+    } else {
+      dispatch(__downCart(cart));
     }
   };
 
   return (
     <div style={{ borderBottom: "1px solid #e1e1e1" }}>
       <tbody style={{ fontSize: "1rem" }}>
-        {cart?.map((cartList) => (
-          <tr>
-            <th style={{ width: "32px" }}>
-              <input
-                name="cartItemId"
-                value={cartList.cartItemId}
-                type="checkbox"
-                style={{ zoom: 1.4 }}
-                onChange={(e) => {
-                  onChangeCheck(e.target.checked, e.target.value);
-                }}
-                checked={
-                  cartItemId.includes(cartList.cartItemId) ? true : false
-                }
-              ></input>
-            </th>
-            <th style={{ padding: "15px", width: "100px" }}>
-              <img
-                style={{ boxSizing: "border-box", width: "80px" }}
-                src={cartList.thumbnailImgUrl}
-                alt="표지"
-              />
-            </th>
-            <th style={{ textAlign: "left", width: "380px" }}>
-              {cartList.name}
-            </th>
-            <th style={{ width: "90px" }}>
-              {numeral(cartList.sellingPrice).format("0,0")}
-            </th>
-            <th style={{ width: "78px" }}>
-              <CartDiv>
-                <CartFirstDiv>{cartList.quantity}</CartFirstDiv>
-                <CartSecondDiv>
-                  <Upbutton
-                    onClick={(count) => {
-                      onClickUp(count);
-                    }}
-                  ></Upbutton>
-                  <Downbutton
-                    onClick={(count) => {
-                      onClickDown(count);
-                    }}
-                  ></Downbutton>
-                </CartSecondDiv>
-              </CartDiv>
-            </th>
-            <th style={{ width: "94px" }}>-</th>
-            <th style={{ width: "94px", fontSize: "0.8rem", color: "#a09494" }}>
-              기본배송
-            </th>
-            <th style={{ width: "82px", fontSize: "0.8rem", color: "#a09494" }}>
-              무료
-            </th>
-            <th style={{ width: "98px" }}>
-              {numeral(cartList.summation).format("0,0")}
-            </th>
-            <th style={{ width: "110px" }}>
-              <button
-                value={cartList.cartItemId}
-                style={{
-                  padding: "5px 0",
-                  margin: "2px 0",
-                  width: "100px",
-                  height: "33px",
-                  background: "#fff",
-                  border: "1px solid #ddd",
-                  textAlign: "center",
-                  fontSize: "0.78rem",
-                  fontWeight: "300",
-                }}
-                onClick={() => {
-                  onClickDelete();
-                }}
+        {cart &&
+          cart?.map((cartList) => (
+            <tr>
+              <th style={{ width: "32px" }}>
+                <input
+                  name="cartItemId"
+                  value={cartList.cartItemId}
+                  type="checkbox"
+                  style={{ zoom: 1.4 }}
+                  onChange={(e) => {
+                    onChangeCheck(e.target.checked, e.target.value);
+                  }}
+                  checked={
+                    cartItemId.includes(cartList.cartItemId) ? true : false
+                  }
+                ></input>
+              </th>
+              <th style={{ padding: "15px", width: "100px" }}>
+                <img
+                  style={{ boxSizing: "border-box", width: "80px" }}
+                  src={cartList.thumbnailImgUrl}
+                  alt="표지"
+                />
+              </th>
+              <th style={{ textAlign: "left", width: "380px" }}>
+                {cartList.name}
+              </th>
+              <th style={{ width: "90px" }}>
+                {numeral(cartList.sellingPrice).format("0,0")}
+              </th>
+              <th style={{ width: "78px" }}>
+                <CartDiv>
+                  <CartFirstDiv>{cartList.quantity}</CartFirstDiv>
+                  <CartSecondDiv>
+                    <Upbutton
+                      onClick={() => {
+                        onClickUp(cartList);
+                      }}
+                    ></Upbutton>
+                    <Downbutton
+                      onClick={() => {
+                        onClickDown(cartList);
+                      }}
+                    ></Downbutton>
+                  </CartSecondDiv>
+                </CartDiv>
+              </th>
+              <th style={{ width: "94px" }}>-</th>
+              <th
+                style={{ width: "94px", fontSize: "0.8rem", color: "#a09494" }}
               >
-                삭제
-              </button>
-            </th>
-          </tr>
-        ))}
+                기본배송
+              </th>
+              <th
+                style={{ width: "82px", fontSize: "0.8rem", color: "#a09494" }}
+              >
+                무료
+              </th>
+              <th style={{ width: "98px" }}>
+                {numeral(cartList.summation).format("0,0")}
+              </th>
+              <th style={{ width: "110px" }}>
+                <button
+                  value={cartList.cartItemId}
+                  style={{
+                    padding: "5px 0",
+                    margin: "2px 0",
+                    width: "100px",
+                    height: "33px",
+                    background: "#fff",
+                    border: "1px solid #ddd",
+                    textAlign: "center",
+                    fontSize: "0.78rem",
+                    fontWeight: "300",
+                  }}
+                  onClick={() => {
+                    onClickDelete(cartList);
+                  }}
+                >
+                  삭제
+                </button>
+              </th>
+            </tr>
+          ))}
       </tbody>
+      <CartFootTable />
+      <CartDivSecond>
+        할인 적용 금액은 주문작성의 결제예정금액에서 확인 가능합니다.
+      </CartDivSecond>
+      <CartMiddleDiv>
+        선택상품을
+        <CartWhiteBtn1> 삭제하기</CartWhiteBtn1>
+        <CartWhiteBtn2>장바구니비우기</CartWhiteBtn2>
+      </CartMiddleDiv>
     </div>
   );
 };
@@ -170,4 +186,33 @@ const CartSecondDiv = styled.div`
   justify-content: end;
   flex-direction: column;
   width: 10px;
+`;
+
+const CartMiddleDiv = styled.div`
+  margin: 20px 0;
+  font-size: 0.8rem;
+`;
+const CartDivSecond = styled.div`
+  font-size: 0.7rem;
+`;
+
+const CartWhiteBtn1 = styled.button`
+  padding: 5px 0;
+  margin: 2px 0 2px 8px;
+  width: 100px;
+  height: 38px;
+  background: white;
+  border: 1px solid var(--color-light-gray);
+  text-align: center;
+  font-size: 0.9rem;
+`;
+const CartWhiteBtn2 = styled.button`
+  padding: 5px 0;
+  margin: 2px 0 0 850px;
+  width: 150px;
+  height: 38px;
+  background: white;
+  border: 1px solid var(--color-light-gray);
+  text-align: center;
+  font-size: 0.9rem;
 `;
