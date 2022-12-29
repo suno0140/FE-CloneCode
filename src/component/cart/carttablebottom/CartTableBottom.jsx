@@ -1,7 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import numeral from "numeral";
+import { useSelector } from "react-redux";
 
 const CartTableBottom = () => {
+  const { cart } = useSelector((state) => state.cart);
+  const sumall = cart
+    .map((item) => item.summation)
+    .reduce((prev, curr) => prev + curr, 0);
   return (
     <div style={{ margin: "50px 0 150px" }}>
       <table style={{ fontSize: "1.3rem" }}>
@@ -49,7 +55,7 @@ const CartTableBottom = () => {
                 border: "1px solid var(--color-light-gray)",
               }}
             >
-              290,000원
+              {numeral(sumall).format("0,0")}
             </th>
             <th
               style={{
@@ -67,7 +73,7 @@ const CartTableBottom = () => {
                 borderLeft: "none",
               }}
             >
-              = 290,000원
+              = {numeral(sumall).format("0,0")}
             </th>
           </tr>
         </tbody>
