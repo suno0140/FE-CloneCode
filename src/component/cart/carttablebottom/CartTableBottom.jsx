@@ -11,11 +11,11 @@ const CartTableBottom = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.product);
-  const CartTableBottom = () => {
   const { cart } = useSelector((state) => state.cart);
   const sumall = cart
     .map((item) => item.summation)
     .reduce((prev, curr) => prev + curr, 0);
+
   //   const orderHandler = () => {
   //     dispatch(
   //       __postOrderList({ productId: product?.productId, quantity: count })
