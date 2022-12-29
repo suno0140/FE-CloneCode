@@ -88,7 +88,7 @@ const ProductCoreInfoTextBox = () => {
             ></Downbutton>
           </div>
         </CountContainer>
-        <h4>{product.price}원</h4>
+        <h4>{product.price * count}원</h4>
       </CountLineContainer>
       <TotalContainer>
         <h5>TOTAL :</h5>
