@@ -24,11 +24,13 @@ const CartBodyTable = () => {
   console.log(cartItemIdList);
 
   const onCheckDelete = () => {
-    dispatch(__deleteCart({ cartItemIdList: cartItemIdList }));
+    // dispatch(__deleteCart({ cartItemIdList: cartItemIdList }));
+    alert("현재 준비중인 서비스입니다.");
   };
 
   const onClickDelete = (cartList) => {
-    dispatch(__deleteCart({ cartItemIdList: [cartList.cartItemId] }));
+    // dispatch(__deleteCart({ cartItemIdList: [cartList.cartItemId] }));
+    alert("현재 준비중인 서비스입니다.");
   };
 
   const onClickUp = (cart) => {

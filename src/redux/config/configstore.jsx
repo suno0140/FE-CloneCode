@@ -8,7 +8,6 @@ import header from "../modules/headerSlice";
 import cart from "../modules/cartSlice";
 import orderList from "../modules/orderListSlice";
 
-
 const store = configureStore({
   reducer: {
     productList,
