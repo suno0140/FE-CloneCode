@@ -21,7 +21,7 @@ const SocialLogin = () => {
       />
       <SocialLoginButton
         title="카카오계정 로그인"
-        linkTo={`https://kauth.kakao.com/oauth/authorize?client_id=${kakaoId}&redirect_uri=http://localhost:8080/api/user/kakao/callback&response_type=code`}
+        linkTo={`https://kauth.kakao.com/oauth/authorize?client_id=${kakaoId}&redirect_uri=http://localhost:3000/login/kakao&response_type=code`}
         color="#3c1e1e"
         background={`#ffeb00
     url(//img.echosting.cafe24.com/skin/mobile/member/ico_btn_kakao.png)
