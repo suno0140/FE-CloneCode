@@ -35,7 +35,6 @@ const ProductCoreInfoTextBox = () => {
       console.log(cart);
       const data = await baseURLApiV1.post("/cart", cart);
       if (data.data.statusCode === 201) {
-        navigate("/cart");
         return data;
       } else {
         alert(data.data.msg);
@@ -43,6 +42,7 @@ const ProductCoreInfoTextBox = () => {
     } catch (error) {
       console.log(error);
     }
+    navigate("/cart");
   };
 
   const orderHandler = () => {

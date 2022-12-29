@@ -42,7 +42,7 @@ const SignUpInput = () => {
           onChange={onChangeInputHandler}
         ></SignupIdInput>
         <SignupPtag>{idMessage}</SignupPtag>
-        <SignupPtag>(영문소문자+숫자,4~16자)</SignupPtag>
+        <SignupPtag>(영문소문자/숫자,4~16자)</SignupPtag>
       </SignupDiv>
       <SignupDiv>
         <SignupDivSecond>

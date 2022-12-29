@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import CartMiddleScreen from "../cartmiddle/CartMiddleScreen";
 import CartTableBottom from "../carttablebottom/CartTableBottom";
 import CartBodyTable from "../carttabletop/CartBody/CartBodyTable";
 import CartFootTable from "../carttabletop/CartFootTable";
@@ -23,7 +22,6 @@ const CartPage = () => {
           <CartBodyTable />
         </table>
       </div>
-      {/* <CartMiddleScreen /> */}
       <CartTableBottom />
     </div>
   );
