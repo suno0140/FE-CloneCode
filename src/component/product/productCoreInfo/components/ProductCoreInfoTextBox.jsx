@@ -16,7 +16,7 @@ const ProductCoreInfoTextBox = () => {
   const [count, setCount] = useState(1);
 
   const onClickUp = () => {
-    if (count < 10) {
+    if (count < 100) {
       setCount((count) => count + 1);
     } else {
       alert("최대주문 수량입니다.");
@@ -43,7 +43,7 @@ const ProductCoreInfoTextBox = () => {
       }
     } catch (error) {
       console.log(error);
-      alert("로그인이 필요합니다.");
+      alert("장바구니 담기에 실패했습니다.");
     }
   };
 

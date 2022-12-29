@@ -34,8 +34,8 @@ const CartBodyTable = () => {
   };
 
   const onClickUp = (cart) => {
-    if (cart.quantity === 10) {
-      alert("최대주문 수량은 10개입니다.");
+    if (cart.quantity === 100) {
+      alert("최대주문 수량은 100개입니다.");
     } else {
       dispatch(__upCart(cart));
     }
