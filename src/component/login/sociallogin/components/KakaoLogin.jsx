@@ -8,17 +8,15 @@ const KakaoLogin = () => {
   const [searchParams] = useSearchParams();
   // 받아오는 url 형태 확인
   const code = searchParams.get("code");
-  const callBackURL = `${serverUrlApiV1}/members/login/kakao`;
+  const callBackURL = `${serverUrlApiV1}/members/login/kakao?code=${code}`;
 
   useEffect(() => {
     if (code) {
       const gitHubCallBack = async () => {
         try {
-          const res = await axios.post(callBackURL, {
-            code: code,
-          });
+          const res = await axios.post(callBackURL);
           console.log(res);
-          localStorage.setItem("Authorization", res.headers.Authorization);
+          localStorage.setItem("Authorization", res.headers.authorization);
           alert(res.data.msg);
           navigate("/");
         } catch (error) {

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { __getOrderList } from "../../../../redux/modules/orderListSlice";
+import numeral from "numeral";
 
 const OrderProductListTable = () => {
   const dispatch = useDispatch();
@@ -34,8 +35,11 @@ const OrderProductListTable = () => {
                 </th>
                 <th width="200rem">{order.name}</th>
                 <th width="20rem">{order.quantity}</th>
-                <th width="20rem">{order.sellingPrice}</th>
-                <th width="20rem">{order.summation}</th>
+
+                <th width="20rem">
+                  {numeral(order.sellingPrice).format("0,0")}
+                </th>
+                <th width="20rem">{numeral(order.summation).format("0,0")}</th>
               </tr>
             ))
           ) : (

@@ -44,9 +44,14 @@ const HeaderSecond = () => {
               navigate("/cart");
             }}
           />
-          <div>{cartItemCount}</div>
+          <div
+            onClick={() => {
+              navigate("/cart");
+            }}
+          >
+            {cartItemCount}
+          </div>
         </div>
-        <img src={process.env.PUBLIC_URL + "/imgs/search.svg"} alt="search" />
       </IconContainer>
     </HeaderContainerSecond>
   );
@@ -91,6 +96,7 @@ const IconContainer = styled.div`
       justify-content: center;
       align-items: center;
       font-size: 0.1rem;
+      cursor: pointer;
     }
   }
   img {

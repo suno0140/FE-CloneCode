@@ -15,13 +15,12 @@ const HeaderFirst = () => {
     localStorage.removeItem("Authorization");
   };
 
-  useEffect(() => {
-    dispatch(__getHeader());
-  }, [dispatch]);
+  dispatch(__getHeader());
+
   return (
     <HeaderContainerFirst>
       <div>
-        <LinkButton linkName="COMMUNITY" />
+        <LinkButton linkName="HANGHEA99" />
       </div>
       <img
         src="http://iiinjeju.com/_dj/img/logo.jpg"

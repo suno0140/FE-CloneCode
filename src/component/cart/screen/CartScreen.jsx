@@ -19,7 +19,6 @@ const CartPage = () => {
       <div>
         <table>
           <CartHeadTable />
-
           <CartBodyTable />
         </table>
       </div>

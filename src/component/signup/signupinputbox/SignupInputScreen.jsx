@@ -31,7 +31,7 @@ const SignUpInput = () => {
     "http://img.echosting.cafe24.com/skin/base/common/ico_required.gif";
   return (
     <SignupBox>
-      <SocialLogin />
+      {/* <SocialLogin /> */}
       <SignupDiv>
         <SignupDivSecond>
           아이디

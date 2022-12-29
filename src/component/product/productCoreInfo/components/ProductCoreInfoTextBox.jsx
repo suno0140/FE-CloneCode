@@ -10,6 +10,7 @@ const ProductCoreInfoTextBox = () => {
   const dispatch = useDispatch();
 
   const { product } = useSelector((state) => state.product);
+
   const productId = product.productId;
   const [count, setCount] = useState(1);
 
@@ -32,7 +33,6 @@ const ProductCoreInfoTextBox = () => {
     try {
       const quantity = count;
       const cart = { productId, quantity };
-      console.log(cart);
       const data = await baseURLApiV1.post("/cart", cart);
       if (data.data.statusCode === 201) {
         navigate("/cart");
@@ -45,15 +45,21 @@ const ProductCoreInfoTextBox = () => {
     }
   };
 
+  const successOrder = () => {
+    alert("구매가 완료되었습니다");
+    navigate("/orderlist");
+  };
+
   const orderHandler = () => {
     dispatch(
       __postOrderList({
         productList: [{ productId: product?.productId, quantity: count }],
+        inCart: false,
       })
     ).then((res) => {
-      // alert(res.payload.msg);
-      console.log(res);
-      navigate("/orderlist");
+      res?.error?.message && res?.error?.message === "Rejected"
+        ? alert("로그인이 필요합니다")
+        : successOrder();
     });
   };
 
