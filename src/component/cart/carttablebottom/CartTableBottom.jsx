@@ -16,6 +16,7 @@ const CartTableBottom = ({ setCartItemId, cartItemId }) => {
     .map((item) => item.summation)
     .reduce((prev, curr) => prev + curr, 0);
 
+
   const orderlist = cart.map((cart) => {
     return { productId: cart.productId, quantity: cart.quantity };
   });
@@ -32,7 +33,7 @@ const CartTableBottom = ({ setCartItemId, cartItemId }) => {
   console.log(cartItemId);
 
   return (
-    <div style={{ margin: "50px 0 150px" }}>
+    <div style={{ margin: "20px 0 150px" }}>
       <table style={{ fontSize: "1.3rem" }}>
         <thead style={{ color: "var(--color-gray)" }}>
           <tr>
