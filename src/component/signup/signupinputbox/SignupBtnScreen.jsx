@@ -20,6 +20,8 @@ const SignupBtn = () => {
       form.email === ""
     ) {
       alert("빈값을 입력해주세요!");
+    } else if (!/^(?=.*\d)(?=.*[a-z0-9])[0-9a-z]{4,16}$/.test(form.loginId)) {
+      alert("아이디를 형식을 확인해주세요.");
     } else if (
       !/^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{10,16}$/.test(
         form.password
@@ -51,11 +53,14 @@ const SignupBtn = () => {
 export default SignupBtn;
 
 const Signupbutton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 200px;
   background-color: #000000;
   box-shadow: 5px 5px 16px 0 rgb(0 0 0 / 30%);
   color: #ffffff;
-  margin: 50px 1px 130px 330px;
+  margin: 70px 0 70px 390px;
   padding: 16px 30px 17px;
   font-weight: 550;
   font-size: 1.3rem;

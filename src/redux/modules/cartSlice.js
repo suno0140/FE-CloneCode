@@ -22,9 +22,11 @@ export const __deleteCart = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       console.log(payload);
-      const { data } = await baseURLApiV1.delete(`/cart`, payload);
+      console.log(typeof payload); // object
+      const { data } = await baseURLApiV1.delete(`/cart/items`, payload);
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
+      console.log(error);
       return thunkAPI.rejectWithValue(error);
     }
   }
@@ -70,6 +72,11 @@ const cartSlice = createSlice({
       state.cart = action.payload.data;
     });
     builder.addCase(__deleteCart.fulfilled, (state, action) => {
+      console.log(action.payload);
+      state.cart = action.payload.data;
+    });
+    builder.addCase(__deleteCart.rejected, (state, action) => {
+      console.log("결과", action.payload);
       state.cart = action.payload.data;
     });
     builder.addCase(__upCart.fulfilled, (state, action) => {

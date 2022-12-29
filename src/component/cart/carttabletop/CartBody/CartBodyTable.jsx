@@ -28,7 +28,6 @@ const CartBodyTable = () => {
   };
 
   const onClickDelete = (cartList) => {
-    // const cartItemId = cartList.cartItemid;
     dispatch(__deleteCart({ cartItemIdList: [cartList.cartItemId] }));
   };
 
@@ -99,7 +98,7 @@ const CartBodyTable = () => {
               </th>
               <th style={{ width: "94px" }}>-</th>
               <th
-                style={{  width: "94px", fontSize: "0.8rem", color: "#a09494" }}
+                style={{ width: "94px", fontSize: "0.8rem", color: "#a09494" }}
               >
                 기본배송
               </th>
@@ -148,7 +147,6 @@ const CartBodyTable = () => {
         >
           삭제하기
         </CartWhiteBtn1>
-        <CartWhiteBtn2>장바구니비우기</CartWhiteBtn2>
       </CartMiddleDiv>
     </div>
   );
@@ -213,16 +211,6 @@ const CartWhiteBtn1 = styled.button`
   padding: 5px 0;
   margin: 2px 0 2px 8px;
   width: 100px;
-  height: 38px;
-  background: white;
-  border: 1px solid var(--color-light-gray);
-  text-align: center;
-  font-size: 0.9rem;
-`;
-const CartWhiteBtn2 = styled.button`
-  padding: 5px 0;
-  margin: 2px 0 0 850px;
-  width: 150px;
   height: 38px;
   background: white;
   border: 1px solid var(--color-light-gray);

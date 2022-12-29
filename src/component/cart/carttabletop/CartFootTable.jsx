@@ -20,7 +20,7 @@ const CartFootTable = () => {
         <tr>
           <td colspan="10" style={{ padding: "20px 0 20px 0" }}>
             <span style={{ justifyContent: "flex-start" }}>[기본배송]</span>
-            <span style={{ marginLeft: "600px" }}>
+            <span style={{ marginLeft: "500px" }}>
               상품구매금액{" "}
               <span style={{ fontWeight: "bold" }}>
                 {" "}

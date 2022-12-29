@@ -14,6 +14,9 @@ const Product = () => {
 
   useEffect(() => {
     dispatch(__getProduct(id));
+    return () => {
+      dispatch(__getProduct(0));
+    };
   }, [dispatch, id]);
 
   return (
