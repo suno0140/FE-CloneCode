@@ -37,8 +37,7 @@ const headerSlice = createSlice({
       state.cartItemCount = action.payload.data.cartItemCount;
     });
     builder.addCase(__getHeader.rejected, (state, action) => {
-      console.log(action.payload);
-      alert(action.payload);
+      console.log(action.payload.response.data.msg);
     });
   },
 });

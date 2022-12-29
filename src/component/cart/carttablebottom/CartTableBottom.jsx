@@ -1,13 +1,29 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+
+import { useSelector, useDispatch } from "react-redux";
+import { baseURLApiV1 } from "../../../core/api";
+import { __postOrderList } from "../../../redux/modules/orderListSlice";
 import numeral from "numeral";
-import { useSelector } from "react-redux";
 
 const CartTableBottom = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { product } = useSelector((state) => state.product);
+  const CartTableBottom = () => {
   const { cart } = useSelector((state) => state.cart);
   const sumall = cart
     .map((item) => item.summation)
     .reduce((prev, curr) => prev + curr, 0);
+  //   const orderHandler = () => {
+  //     dispatch(
+  //       __postOrderList({ productId: product?.productId, quantity: count })
+  //     ).then((res) => {
+  //       alert(res.payload.msg);
+  //       navigate("/orderlist");
+  //     });
+  // };
   return (
     <div style={{ margin: "50px 0 150px" }}>
       <table style={{ fontSize: "1.3rem" }}>
@@ -79,7 +95,19 @@ const CartTableBottom = () => {
         </tbody>
       </table>
       <Orderdiv>
-        <OrderButton>주문하기</OrderButton>
+        <OrderButton
+          backgroundColor="white"
+          color="var(--color-black)"
+          border="1px solid #C5C5C5"
+        >
+          장바구니
+        </OrderButton>
+        <OrderButton
+          border="1px solid var(--color-black)"
+          // onClick={() => { orderHandler() }}
+        >
+          구매하기
+        </OrderButton>
       </Orderdiv>
     </div>
   );
@@ -96,11 +124,14 @@ const Orderdiv = styled.div`
 const OrderButton = styled.button`
   display: flex;
   align-items: center;
+  margin: 0.3rem;
   justify-content: center;
   width: 250px;
-  background-color: var(--color-black);
+  background-color: ${({ backgroundColor }) =>
+    backgroundColor || "var(--color-black)"};
   font-size: 1rem;
-  color: white;
+  color: ${({ color }) => color || "white"};
+  border: ${({ border }) => border || "none"};
   font-weight: 700;
   padding: 0.7rem;
   letter-spacing: 3px;
