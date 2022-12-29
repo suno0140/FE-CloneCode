@@ -11,11 +11,11 @@ const CartTableBottom = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.product);
-  const CartTableBottom = () => {
   const { cart } = useSelector((state) => state.cart);
   const sumall = cart
     .map((item) => item.summation)
     .reduce((prev, curr) => prev + curr, 0);
+
   //   const orderHandler = () => {
   //     dispatch(
   //       __postOrderList({ productId: product?.productId, quantity: count })
@@ -25,7 +25,7 @@ const CartTableBottom = () => {
   //     });
   // };
   return (
-    <div style={{ margin: "50px 0 150px" }}>
+    <div style={{ margin: "20px 0 150px" }}>
       <table style={{ fontSize: "1.3rem" }}>
         <thead style={{ color: "var(--color-gray)" }}>
           <tr>

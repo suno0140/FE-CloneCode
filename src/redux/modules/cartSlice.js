@@ -21,10 +21,8 @@ export const __deleteCart = createAsyncThunk(
   "cart/deleteCart",
   async (payload, thunkAPI) => {
     try {
-      const cartItemId = payload.cartItemId;
-      const cartItem = { cartItemId: cartItemId };
-      console.log(cartItem);
-      const { data } = await baseURLApiV1.delete(`/cart`, cartItem);
+      console.log(payload);
+      const { data } = await baseURLApiV1.delete(`/cart`, payload);
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);

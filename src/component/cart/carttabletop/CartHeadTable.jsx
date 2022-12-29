@@ -9,7 +9,7 @@ const CartHeadTable = () => {
       }}
     >
       <colgroup>
-        <col style={{ width: "32px" }}></col>
+        <col style={{ width: "33px" }}></col>
         <col style={{ width: "110px" }}></col>
         <col style={{ width: "400px" }}></col>
         <col style={{ width: "100px" }}></col>
@@ -22,10 +22,8 @@ const CartHeadTable = () => {
       </colgroup>
       <thead style={{ fontSize: "0.9rem", color: "" }}>
         <tr>
-          <th scope="col">
-            <input type="checkbox" style={{ zoom: 1.4 }}></input>
-          </th>
-          <th scope="col" style={{ padding: "15px" }}>
+          <th scope="col"></th>
+          <th scope="col" style={{ padding: "15px 15px 15px 45px" }}>
             이미지
           </th>
           <th scope="col">상품정보</th>
