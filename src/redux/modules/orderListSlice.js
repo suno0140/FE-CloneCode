@@ -3,6 +3,7 @@ import { baseURLApiV1 } from "../../core/api";
 
 const initialState = {
   orderList: [],
+  error: null,
 };
 
 export const __getOrderList = createAsyncThunk(
@@ -42,10 +43,10 @@ const orderListSlice = createSlice({
       console.log(action.payload);
     });
     builder.addCase(__postOrderList.fulfilled, (state, action) => {
-      alert(action.payload.msg);
+      // state.error = action.payload.message;
     });
     builder.addCase(__postOrderList.rejected, (state, action) => {
-      console.log(action.payload);
+      // alert("로그인이 필요합니다");
     });
   },
 });

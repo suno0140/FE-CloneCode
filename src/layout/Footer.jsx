@@ -4,8 +4,8 @@ import styled from "styled-components";
 const Footer = () => {
   return (
     <Container>
-      <h5>STUDY</h5>
-      <p>항해 99 클론 코딩 2조</p>
+      <h5>HANGHEA99</h5>
+      <p>김민호 안수빈 이진홍 이한주 최선호 황보석</p>
     </Container>
   );
 };
@@ -16,7 +16,7 @@ const Container = styled.div`
   align-items: center;
   border-top: 2px solid black;
   width: 100%;
-  padding: 0.9rem;
+  padding: 2.5rem;
   min-width: 800px;
   max-width: 1200px;
   h5 {
@@ -27,7 +27,7 @@ const Container = styled.div`
   p {
     font-weight: 200;
     font-size: 0.2rem;
-    margin-top: 0.5rem;
+    margin-top: 0.2rem;
   }
 `;
 

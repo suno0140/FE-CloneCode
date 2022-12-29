@@ -7,23 +7,30 @@ import { baseURLApiV1 } from "../../../core/api";
 import { __postOrderList } from "../../../redux/modules/orderListSlice";
 import numeral from "numeral";
 
-const CartTableBottom = () => {
+const CartTableBottom = ({ setCartItemId, cartItemId }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { product } = useSelector((state) => state.product);
-  const CartTableBottom = () => {
   const { cart } = useSelector((state) => state.cart);
   const sumall = cart
     .map((item) => item.summation)
     .reduce((prev, curr) => prev + curr, 0);
-  //   const orderHandler = () => {
-  //     dispatch(
-  //       __postOrderList({ productId: product?.productId, quantity: count })
-  //     ).then((res) => {
-  //       alert(res.payload.msg);
-  //       navigate("/orderlist");
-  //     });
-  // };
+
+  const orderlist = cart.map((cart) => {
+    return { productId: cart.productId, quantity: cart.quantity };
+  });
+
+  const orderHandler = () => {
+    dispatch(__postOrderList({ productList: orderlist, inCart: true })).then(
+      (res) => {
+        alert(res.payload.msg);
+        navigate("/orderlist");
+      }
+    );
+  };
+
+  console.log(cartItemId);
+
   return (
     <div style={{ margin: "50px 0 150px" }}>
       <table style={{ fontSize: "1.3rem" }}>
@@ -95,16 +102,18 @@ const CartTableBottom = () => {
         </tbody>
       </table>
       <Orderdiv>
-        <OrderButton
+        {/* <OrderButton
           backgroundColor="white"
           color="var(--color-black)"
           border="1px solid #C5C5C5"
         >
           장바구니
-        </OrderButton>
+        </OrderButton> */}
         <OrderButton
           border="1px solid var(--color-black)"
-          // onClick={() => { orderHandler() }}
+          onClick={() => {
+            orderHandler();
+          }}
         >
           구매하기
         </OrderButton>
@@ -113,7 +122,6 @@ const CartTableBottom = () => {
   );
 };
 
-export default CartTableBottom;
 const Orderdiv = styled.div`
   display: flex;
   align-items: center;
@@ -137,3 +145,5 @@ const OrderButton = styled.button`
   letter-spacing: 3px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
+
+export default CartTableBottom;

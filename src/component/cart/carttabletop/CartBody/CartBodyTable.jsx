@@ -8,6 +8,7 @@ import {
   __downCart,
 } from "../../../../redux/modules/cartSlice";
 import CartFootTable from "../CartFootTable";
+
 const CartBodyTable = () => {
   const { cart } = useSelector((state) => state.cart);
   const [cartItemId, setCartItemId] = useState([]);

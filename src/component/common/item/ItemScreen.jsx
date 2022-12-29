@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { fadeInFromBottomAnimation } from "../../../styles/animations";
 import useScrollFadeIn from "../../../hooks/useScrollFadeIn";
 import { useNavigate } from "react-router-dom";
+import numeral from "numeral";
 
 const ItemScreen = ({ thumbnailImgUrl, name, price, caption, linkTo }) => {
   const animationItem = useScrollFadeIn();
@@ -18,7 +19,7 @@ const ItemScreen = ({ thumbnailImgUrl, name, price, caption, linkTo }) => {
       <img src={thumbnailImgUrl} alt={name}></img>
       <div>{name}</div>
       <h6>{caption}</h6>
-      <h5>{price}원</h5>
+      <h5>{numeral(price).format("0,0")}원</h5>
     </Container>
   );
 };
@@ -27,11 +28,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   width: 14rem;
+  height: 20rem;
   margin: 3.5rem 1rem 0 1rem;
   cursor: pointer;
   img {
     width: 100%;
-    /* ${fadeInFromBottomAnimation} */
   }
   div {
     text-align: center;

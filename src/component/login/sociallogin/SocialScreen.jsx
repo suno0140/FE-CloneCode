@@ -1,16 +1,11 @@
 import React from "react";
 import styled from "styled-components";
-// import useGithubLogin from "./hooks/useGithubLogin";
 import { githubId } from "../../../core";
 import { kakaoId } from "../../../core";
 
 import SocialLoginButton from "./components/SocialLoginButton";
-// import useKakaoLogin from "./hooks/useKaKaoLogin";
 
 const SocialLogin = () => {
-  // 조건문 형태 확인
-  // useGithubLogin();
-  // useKakaoLogin();
   return (
     <LoginUl>
       <SocialLoginButton
@@ -36,10 +31,6 @@ const SocialLogin = () => {
     no-repeat 9px 4px`}
         border="1px solid lightgray"
       /> */}
-      {/* <LoginKakaoBtn>카카오계정 로그인</LoginKakaoBtn> */}
-      {/* <LoginNaverBtn>구글계정 로그인</LoginNaverBtn> */}
-      {/* <LoginNaverBtn>네이버계정 로그인</LoginNaverBtn> */}
-      {/* <LoginFacebookBtn>facebook계정 로그인</LoginFacebookBtn> */}
     </LoginUl>
   );
 };
@@ -53,41 +44,3 @@ const LoginUl = styled.div`
   margin: 0;
   border: 0;
 `;
-
-// const LoginFacebookBtn = styled.button`
-//   width: 200px;
-//   margin: 5px 0 0 10px;
-//   border: 0;
-//   border-radius: 2px;
-//   font-size: 0.8rem;
-//   color: white;
-//   text-align: center;
-//   height: 34px;
-//   line-height: 33px;
-//   padding: 1px 0 0 45px;
-//   background: #3b5998
-//     url(//img.echosting.cafe24.com/skin/mobile/member/ico_btn_facebook.png)
-//     no-repeat 11px 1px;
-//   background-size: auto 33px;
-//   -moz-box-sizing: border-box;
-//   box-sizing: border-box;
-// `;
-
-// const LoginNaverBtn = styled.button`
-//   width: 200px;
-//   margin: 5px 0 0;
-//   border: 0;
-//   border-radius: 2px;
-//   font-size: 0.8rem;
-//   color: white;
-//   text-align: center;
-//   height: 34px;
-//   line-height: 33px;
-//   padding: 1px 0 0 45px;
-//   background: #26c826
-//     url(//img.echosting.cafe24.com/skin/mobile/member/ico_btn_naver.png)
-//     no-repeat 11px 1px;
-//   background-size: auto 33px;
-//   -moz-box-sizing: border-box;
-//   box-sizing: border-box;
-// `;
