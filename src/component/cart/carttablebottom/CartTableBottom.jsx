@@ -9,7 +9,7 @@ const CartTableBottom = () => {
     .map((item) => item.summation)
     .reduce((prev, curr) => prev + curr, 0);
   return (
-    <div style={{ margin: "50px 0 150px" }}>
+    <div style={{ margin: "20px 0 150px" }}>
       <table style={{ fontSize: "1.3rem" }}>
         <thead style={{ color: "var(--color-gray)" }}>
           <tr>

@@ -10,19 +10,25 @@ import {
 import CartFootTable from "../CartFootTable";
 const CartBodyTable = () => {
   const { cart } = useSelector((state) => state.cart);
-  const [cartItemId, setCartItemId] = useState([]);
+  const [cartItemIdList, setCartItemId] = useState([]);
   const dispatch = useDispatch();
 
   const onChangeCheck = (checked, cartId) => {
     if (checked) {
-      setCartItemId([...cartItemId, +cartId]);
+      setCartItemId([...cartItemIdList, +cartId]);
     } else if (!checked) {
-      setCartItemId(cartItemId.filter((e) => e !== +cartId));
+      setCartItemId(cartItemIdList.filter((e) => e !== +cartId));
     }
+  };
+  console.log(cartItemIdList);
+
+  const onCheckDelete = () => {
+    dispatch(__deleteCart({ cartItemIdList: cartItemIdList }));
   };
 
   const onClickDelete = (cartList) => {
-    dispatch(__deleteCart(cartList));
+    // const cartItemId = cartList.cartItemid;
+    dispatch(__deleteCart({ cartItemIdList: [cartList.cartItemId] }));
   };
 
   const onClickUp = (cart) => {
@@ -41,7 +47,7 @@ const CartBodyTable = () => {
   };
 
   return (
-    <div style={{ borderBottom: "1px solid #e1e1e1" }}>
+    <div>
       <tbody style={{ fontSize: "1rem" }}>
         {cart &&
           cart?.map((cartList) => (
@@ -56,7 +62,7 @@ const CartBodyTable = () => {
                     onChangeCheck(e.target.checked, e.target.value);
                   }}
                   checked={
-                    cartItemId.includes(cartList.cartItemId) ? true : false
+                    cartItemIdList.includes(cartList.cartItemId) ? true : false
                   }
                 ></input>
               </th>
@@ -92,7 +98,7 @@ const CartBodyTable = () => {
               </th>
               <th style={{ width: "94px" }}>-</th>
               <th
-                style={{ width: "94px", fontSize: "0.8rem", color: "#a09494" }}
+                style={{  width: "94px", fontSize: "0.8rem", color: "#a09494" }}
               >
                 기본배송
               </th>
@@ -134,7 +140,13 @@ const CartBodyTable = () => {
       </CartDivSecond>
       <CartMiddleDiv>
         선택상품을
-        <CartWhiteBtn1> 삭제하기</CartWhiteBtn1>
+        <CartWhiteBtn1
+          onClick={(e) => {
+            onCheckDelete(e);
+          }}
+        >
+          삭제하기
+        </CartWhiteBtn1>
         <CartWhiteBtn2>장바구니비우기</CartWhiteBtn2>
       </CartMiddleDiv>
     </div>

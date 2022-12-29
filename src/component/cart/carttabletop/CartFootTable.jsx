@@ -9,7 +9,13 @@ const CartFootTable = () => {
     .reduce((prev, curr) => prev + curr, 0);
 
   return (
-    <div style={{ borderBottom: "1px solid var(--color-light-gray)" }}>
+    <div
+      style={{
+        borderTop: "1px solid var(--color-light-gray)",
+        borderBottom: "1px solid var(--color-light-gray)",
+        marginBottom: "10px",
+      }}
+    >
       <tfoot style={{ fontSize: "1.2rem" }}>
         <tr>
           <td colspan="10" style={{ padding: "20px 0 20px 0" }}>

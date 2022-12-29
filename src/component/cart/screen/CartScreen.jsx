@@ -19,9 +19,8 @@ const CartPage = () => {
       <div>
         <table>
           <CartHeadTable />
-          
-          <CartBodyTable />
 
+          <CartBodyTable />
         </table>
       </div>
       {/* <CartMiddleScreen /> */}
