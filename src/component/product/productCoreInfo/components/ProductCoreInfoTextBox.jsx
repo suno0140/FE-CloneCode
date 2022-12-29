@@ -13,8 +13,6 @@ const ProductCoreInfoTextBox = () => {
   const productId = product.productId;
   const [count, setCount] = useState(1);
 
-  console.log(product);
-
   const onClickUp = () => {
     if (count < 10) {
       setCount((count) => count + 1);
@@ -49,9 +47,12 @@ const ProductCoreInfoTextBox = () => {
 
   const orderHandler = () => {
     dispatch(
-      __postOrderList({ productId: product?.productId, quantity: count })
+      __postOrderList({
+        productList: [{ productId: product?.productId, quantity: count }],
+      })
     ).then((res) => {
-      alert(res.payload.msg);
+      // alert(res.payload.msg);
+      console.log(res);
       navigate("/orderlist");
     });
   };
