@@ -9,7 +9,6 @@ import numeral from "numeral";
 const CartTableBottom = ({ setCartItemId, cartItemId }) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { product } = useSelector((state) => state.product);
   const { cart } = useSelector((state) => state.cart);
   const sumall = cart
     .map((item) => item.summation)
@@ -101,13 +100,6 @@ const CartTableBottom = ({ setCartItemId, cartItemId }) => {
         </tbody>
       </table>
       <Orderdiv>
-        {/* <OrderButton
-          backgroundColor="white"
-          color="var(--color-black)"
-          border="1px solid #C5C5C5"
-        >
-          장바구니
-        </OrderButton> */}
         <OrderButton
           border="1px solid var(--color-black)"
           onClick={() => {

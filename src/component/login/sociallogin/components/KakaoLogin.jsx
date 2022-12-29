@@ -12,7 +12,7 @@ const KakaoLogin = () => {
 
   useEffect(() => {
     if (code) {
-      const gitHubCallBack = async () => {
+      const kakaoCallBack = async () => {
         try {
           const res = await axios.post(callBackURL);
           console.log(res);
@@ -23,7 +23,7 @@ const KakaoLogin = () => {
           console.log(error);
         }
       };
-      gitHubCallBack();
+      kakaoCallBack();
     }
   }, [callBackURL, code]);
 

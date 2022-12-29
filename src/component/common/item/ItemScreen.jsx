@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { fadeInFromBottomAnimation } from "../../../styles/animations";
 import useScrollFadeIn from "../../../hooks/useScrollFadeIn";
 import { useNavigate } from "react-router-dom";
 import numeral from "numeral";

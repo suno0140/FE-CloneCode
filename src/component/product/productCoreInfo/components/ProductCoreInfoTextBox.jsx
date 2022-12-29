@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { baseURLApiV1 } from "../../../../core/api";
 import { __postOrderList } from "../../../../redux/modules/orderListSlice";
 import { useNavigate } from "react-router-dom";
+import numeral from "numeral";
 
 const ProductCoreInfoTextBox = () => {
   const navigate = useNavigate();
@@ -69,7 +70,7 @@ const ProductCoreInfoTextBox = () => {
       <ProductTitle>{product.name}</ProductTitle>
       <ProductSecondTitle>
         <h4>판매가</h4>
-        <h2>{product.price}원</h2>
+        <h2>{numeral(product.price).format("0,0")}원</h2>
       </ProductSecondTitle>
       <CountLineContainer>
         <CarH5>{product.name}</CarH5>
@@ -88,11 +89,11 @@ const ProductCoreInfoTextBox = () => {
             ></Downbutton>
           </div>
         </CountContainer>
-        <h4>{product.price * count}원</h4>
+        <h4>{numeral(product.price * count).format("0,0")}원</h4>
       </CountLineContainer>
       <TotalContainer>
         <h5>TOTAL :</h5>
-        <h2>{product.price * count}원</h2>
+        <h2>{numeral(product.price * count).format("0,0")}원</h2>
         <p>({count}개)</p>
       </TotalContainer>
       <CartButtonContainer>
