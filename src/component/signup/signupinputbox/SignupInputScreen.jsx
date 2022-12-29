@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import SocialLogin from "../sociallogin/SocialScreen";
 import SignupBtn from "./SignupBtnScreen";
 import { useDispatch, useSelector } from "react-redux";
 import { changeField } from "../../../redux/modules/signUpSlice";

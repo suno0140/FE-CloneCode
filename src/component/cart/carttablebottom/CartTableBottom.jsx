@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import { useSelector, useDispatch } from "react-redux";
-import { baseURLApiV1 } from "../../../core/api";
 import { __postOrderList } from "../../../redux/modules/orderListSlice";
 import numeral from "numeral";
 
@@ -15,7 +14,6 @@ const CartTableBottom = ({ setCartItemId, cartItemId }) => {
   const sumall = cart
     .map((item) => item.summation)
     .reduce((prev, curr) => prev + curr, 0);
-
 
   const orderlist = cart.map((cart) => {
     return { productId: cart.productId, quantity: cart.quantity };

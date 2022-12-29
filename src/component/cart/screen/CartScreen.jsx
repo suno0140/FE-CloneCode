@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import CartTableBottom from "../carttablebottom/CartTableBottom";
 import CartBodyTable from "../carttabletop/CartBody/CartBodyTable";
-import CartFootTable from "../carttabletop/CartFootTable";
 import CartHeadTable from "../carttabletop/CartHeadTable";
 
 const CartPage = () => {

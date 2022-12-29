@@ -38,11 +38,12 @@ const ProductCoreInfoTextBox = () => {
         return data;
       } else {
         alert(data.data.msg);
+        navigate("/cart");
       }
     } catch (error) {
       console.log(error);
+      alert("로그인이 필요합니다.");
     }
-    navigate("/cart");
   };
 
   const successOrder = () => {
