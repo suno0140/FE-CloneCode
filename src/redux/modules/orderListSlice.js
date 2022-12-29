@@ -22,6 +22,7 @@ export const __postOrderList = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       const { data } = await baseURLApiV1.post(`orders`, payload);
+      console.log(data);
       return thunkAPI.fulfillWithValue(data);
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -39,15 +40,12 @@ const orderListSlice = createSlice({
     });
     builder.addCase(__getOrderList.rejected, (state, action) => {
       console.log(action.payload);
-      alert(action.payload);
     });
     builder.addCase(__postOrderList.fulfilled, (state, action) => {
       alert(action.payload.msg);
-      state.orderList = action.payload.data;
     });
     builder.addCase(__postOrderList.rejected, (state, action) => {
       console.log(action.payload);
-      alert(action.payload);
     });
   },
 });

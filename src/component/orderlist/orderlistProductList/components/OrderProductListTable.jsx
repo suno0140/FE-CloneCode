@@ -11,12 +11,12 @@ const OrderProductListTable = () => {
     dispatch(__getOrderList());
   }, [dispatch]);
 
-  console.log(orderList);
   return (
     <>
       <Table>
         <thead>
           <tr>
+            <th width="80rem">주문일자</th>
             <th width="80rem">이미지</th>
             <th width="200rem">상품 정보</th>
             <th width="80rem">수량</th>
@@ -25,9 +25,10 @@ const OrderProductListTable = () => {
           </tr>
         </thead>
         <tbody>
-          {orderList === [] ? (
+          {orderList ? (
             orderList.map((order) => (
-              <tr>
+              <tr key={order.productId}>
+                <th width="80rem">{order.orderDate}</th>
                 <th width="80rem">
                   <img src={order.thumbnailImgUrl} alt={order.name} />
                 </th>
@@ -72,6 +73,9 @@ const Table = styled.table`
         padding: 15px 0;
         border-top: 1px solid var(--color-light-gray);
         border-bottom: 1px solid var(--color-light-gray);
+        img {
+          width: 4rem;
+        }
       }
     }
   }
