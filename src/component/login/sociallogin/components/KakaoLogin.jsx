@@ -17,6 +17,7 @@ const KakaoLogin = () => {
           const res = await axios.post(callBackURL, {
             code: code,
           });
+          console.log(res);
           localStorage.setItem("Authorization", res.headers.Authorization);
           alert(res.data.msg);
           navigate("/");
